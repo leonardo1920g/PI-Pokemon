@@ -1,11 +1,24 @@
 const { 
     createPokemon,
     getPokemonById,
+    getAllPokemons,
+    searchPokemonByName
 } = require("../controllers/pokemonController")
  
-const getPokemonsHandler = (req, res) => {
-    res.send("trae varios pokemons");
-};
+const getPokemonsHandler = async    (req, res) => {
+    const { name } = req.query;
+
+    try {
+    const results = name ? await searchPokemonByName(name) : await getAllPokemons();
+
+    res.status(200).json(results);
+
+    } catch (error) {
+        res.status(404).send("THE POKEMON DOES NOT EXIST")
+
+    }
+    
+ };
 
 const getPokemonHandler = async (req, res) => {
     const { id } = req.params;
@@ -14,19 +27,19 @@ const getPokemonHandler = async (req, res) => {
         const pokemon = await getPokemonById(id, source);
         res.status(200).json(pokemon);
     } catch (error) {
-        res.status(400).json({ error: error.menssage });
+        res.status(400).json({ error: error.message });
     };
 };
 
 const createPokemonHandler = async (req, res) => {
-    const {name, image, life, attack, defense, speed, height, weight} = req.body;
+    const {name, image, hp, attack, defense, speed, height, weight} = req.body;
     
     try {
-        const newPokemon = await createPokemon(name, image, life, attack, defense, speed, height, weight);
-        res.status(200).json({data: newPokemon, menssage: "POKEMON CREATED SUCCESSFULLY"}) 
+        const newPokemon = await createPokemon(name, image, hp, attack, defense, speed, height, weight);
+        res.status(200).json({data: newPokemon, message: "POKEMON CREATED SUCCESSFULLY"}) 
 
     } catch (error) {
-        res.status(400).json({ error: error.menssage });
+        res.status(400).json({ error: error.message });
     };
 };
 

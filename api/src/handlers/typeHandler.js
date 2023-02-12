@@ -1,5 +1,18 @@
-const getTypeHandler = (req, res) => {
-    res.send("trae los tipos de pokemon");
+const { getTypesApi, saveTypesDb } = require("../controllers/typeController")
+const { Type } = require("../db");
+
+const getTypesHandler = async (req, res) => {    
+
+    try {
+        const types = await getTypesApi();
+        await saveTypesDb(types);
+
+        const allTypes = await Type.findAll();
+        return res.status(200).send(allTypes);
+
+    } catch (error) {
+        return res.status(400).json({ error: error.message });
+    };
 };
 
-module.exports = { getTypeHandler };
+module.exports = { getTypesHandler };

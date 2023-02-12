@@ -22,7 +22,7 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
 
-    life: {
+    hp: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
@@ -43,12 +43,12 @@ module.exports = (sequelize) => {
     },
 
     height: {
-      type:DataTypes.DECIMAL,
+      type:DataTypes.INTEGER,
       allowNull: true,
     },
 
     weight: {
-      type:DataTypes.DECIMAL,
+      type:DataTypes.INTEGER,
       allowNull: true,
     },
 
