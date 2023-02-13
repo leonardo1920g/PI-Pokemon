@@ -3,26 +3,23 @@ const {
     getPokemonById,
     getAllPokemons,
     searchPokemonByName
-} = require("../controllers/pokemonController")
+} = require("../controllers/pokemonController");
  
 const getPokemonsHandler = async    (req, res) => {
     const { name } = req.query;
 
     try {
     const results = name ? await searchPokemonByName(name) : await getAllPokemons();
-
-    res.status(200).json(results);
-
+        res.status(200).json(results);
     } catch (error) {
-        res.status(404).send("THE POKEMON DOES NOT EXIST")
-
-    }
-    
+        res.status(404).send({ error: error.message });
+    };    
  };
 
 const getPokemonHandler = async (req, res) => {
     const { id } = req.params;
     const source = isNaN(id)? "bdd" : "api";
+
     try{
         const pokemon = await getPokemonById(id, source);
         res.status(200).json(pokemon);
@@ -36,8 +33,7 @@ const createPokemonHandler = async (req, res) => {
     
     try {
         const newPokemon = await createPokemon(name, image, hp, attack, defense, speed, height, weight);
-        res.status(200).json({data: newPokemon, message: "POKEMON CREATED SUCCESSFULLY"}) 
-
+        res.status(200).json({data: newPokemon, message: "POKEMON CREATED SUCCESSFULLY"});
     } catch (error) {
         res.status(400).json({ error: error.message });
     };
@@ -46,5 +42,5 @@ const createPokemonHandler = async (req, res) => {
 module.exports = {
     getPokemonsHandler,
     getPokemonHandler,
-    createPokemonHandler,
+    createPokemonHandler
 };
