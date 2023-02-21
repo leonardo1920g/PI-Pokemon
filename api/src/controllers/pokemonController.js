@@ -46,14 +46,12 @@ const getPokemonById = async (id, source) => {
         const databasePokemon = await Pokemon.findByPk(id, {
             include: { model: Type, attributes: ["name"] },
         }); 
-        console.log(databasePokemon);        
         return [databasePokemon];
     };
 
     if (source === "api") {
         const pokemonRaw = (await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`)).data
-        const apiPokemon = cleanArray([pokemonRaw]);
-        console.log(apiPokemon);       
+        const apiPokemon = cleanArray([pokemonRaw]);       
         return apiPokemon;
     };    
 };
