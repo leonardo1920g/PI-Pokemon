@@ -1,0 +1,24 @@
+.paginado {
+    display: flex;
+    float: inline-end;
+    list-style: none;
+    margin: 100px;
+    padding: 100px;
+   margin-bottom: 1px;
+  }
+  .paginado button:hover {
+    background-color: #7064be;
+    background-size: 10%;
+  }
+  .paginado button {
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: #342a74;
+    position: relative;
+    display: block;
+    padding: 10px 20px;
+    color: #fff;
+    transition: color 1s;
+    border-radius: 10px;
+  }
+  
