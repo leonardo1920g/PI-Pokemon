@@ -4,12 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
+import { Provider } from 'react-redux';
+import store from './Redux/store';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    {/* conecta a mi palicacion de react con el store */}
+    <Provider store={store}> 
+    {/* me permite pasarle rutas en mi aplicacion  */}
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

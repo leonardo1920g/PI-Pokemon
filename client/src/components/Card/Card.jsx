@@ -8,7 +8,7 @@ const Card = (props) => {
             <img src={props.image}alt="not found"/>
             <h3>Types:{props.types}</h3>
         </div>
-    );
+    )
 };
 
 export default Card;
