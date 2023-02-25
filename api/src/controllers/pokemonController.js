@@ -12,7 +12,7 @@ const cleanArrayAll = (arr) =>
             speed: Data.data.stats[5].base_stat,
             height: Data.data.height,
             weight: Data.data.weight,
-            types: Data.data.types.map((t) => t.type.name),
+            types: Data.data.types.map((ele) => ele.type.name),
             image: Data.data.sprites.other["official-artwork"]['front_default'],
             created: false,
         };
@@ -29,7 +29,7 @@ const cleanArray = (arr) =>
             speed: Data.stats[5].base_stat,
             height: Data.height,
             weight: Data.weight,
-            types: Data.types.map((t) => t.type.name),
+            types: Data.types? Data.types.map((ele) => ele.type.name).flat().sort().join(", "): undefined,
             image: Data.sprites.other["official-artwork"]['front_default'],
             created: false,
         };
@@ -60,28 +60,6 @@ const getAllPokemons = async () => {
 
     const databasePokemons = await Pokemon.findAll({include: {model: Type, attributes: ["name"]}});
     
-    // let apiPokemonRaw = [];
-    // let url = "https://pokeapi.co/api/v2/pokemon";
-
-    // while (url) {
-    //     const { data } = await axios.get(url);
-    //     apiPokemonRaw.push(...data.results);
-    //     url = data.next;
-    // }
-
-    // const apiPokemons = await Promise.all(
-    //     apiPokemonRaw.map( async (pokemon) => {
-    //         const pokemonData = await axios.get(pokemon.url);
-    //         return pokemonData.data;
-    //     })
-    // );
-
-    // const allPokemonsData = cleanArrayAll(apiPokemons)
-    // return [...databasePokemons, ...allPokemonsData]
-
-    
-
-
     const api = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=100');
     const response = api.data.results?.map(elemento => axios.get(elemento.url));
     const responseApi = await axios.all(response);

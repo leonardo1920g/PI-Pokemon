@@ -1,25 +1,46 @@
+import styles from "./Paginated.module.css";
 
-
-const Paginated = ({pokemonsForPage, allPokemons, paginated} ) => {
+const Paginated = ({ showPerPage, pokemons, paginate, page }) => {
 
     const pageNumber = [];
+    const total = Math.ceil(pokemons / showPerPage);
 
-    for ( let i=0; i <= Math.ceil(allPokemons/pokemonsForPage); i++){
-        pageNumber.push(i+1)
-    }
+    for ( let i=1; i <= total; i++){
+        pageNumber.push(i)
+    };
 
     return (
-        <nav>
-            <ul className="paginated">
-                { pageNumber && pageNumber.map(number => (
-                    <li className="number" key={number}>
-                    <a onClick={() => paginated(number)}>{number}</a>
-                    </li>
-                ))}
-            </ul>
-        </nav>
-    )
+        <div className={styles.paginate}>
 
+            <button
+            className={styles.prev}
+            onClick={page > 1 ? () => paginate(page - 1) : null}
+            disabled={page === 1 ? true : false}
+            >
+            Prev
+            </button>        
+
+            {pageNumber.length > 0 && pageNumber.map((number) => {
+                return (
+                    <button
+                    className={styles.prev}
+                    key={number}
+                    onClick={() => paginate(number)}
+                    >
+                    {number}
+                    </button>
+                );})
+            }
+
+            <button
+            className={styles.prev}
+            onClick={page < total ? () => paginate(page + 1) : null}
+            disabled={page === total ? true : false}
+            >
+            Next
+            </button>
+            </div>        
+    );
 };
 
 export default Paginated;
