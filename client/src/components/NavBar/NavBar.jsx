@@ -6,9 +6,8 @@ const NavBar = () => {
 
     return (
         <div className={style.NavBar}>
-            
-            <Link to="/home">HOME</Link>
-            <Link to="/create">CREATE</Link>
+            <Link to="/create">CREATED POKEMON</Link>
+            <Link to="/home">POKEMONS</Link>            
             <SearchBar/>
             
            

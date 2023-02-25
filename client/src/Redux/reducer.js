@@ -1,6 +1,6 @@
 import { 
     GET_POKEMONS, 
-    //POKEMON_DETAIL,    
+    POKEMON_DETAIL,    
     GET_TYPES,
     FILTER_TYPES,
     FILTER_CREATED, 
@@ -12,7 +12,7 @@ import {
 const initialState = {      //este es el estado global!!
     pokemons: [],
     allPokemons: [], 
-    pokemon:[],
+    detail: [],
     types: [],
 };
 
@@ -21,10 +21,10 @@ const rootReducer = (state = initialState, action) => { // recibe el estado inic
     switch(action.type) { //aqui se va a evaluar el typo de action que recibe 
 
         case GET_POKEMONS:
-            return {...state, pokemons:action.payload, allPokemons:action.payload }
+            return {...state, pokemons: action.payload, allPokemons: action.payload }
 
-        // case POKEMON_DETAIL:
-        //     return {...state, pokemonDetail:action.payload}
+        case POKEMON_DETAIL:
+            return {...state, detail: action.payload}
 
         case GET_POKEMON_BY_NAME:
             return {...state, pokemons: action.payload} 

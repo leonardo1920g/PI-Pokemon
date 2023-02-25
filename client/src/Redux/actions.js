@@ -20,18 +20,16 @@ export const getPokemons = () => {
     };
 };
 
-// export const pokemonDetail = (id) => {
-//     return async function (dispatch) {
-
-//         const apiPokemons = await axios.get(`http://localhost:3001/pokemon/${id}`)
-//         const pokemonDetail = apiPokemons.data;
-
-//         dispatch({ type: POKEMON_DETAIL, payload: pokemonDetail})        
-//     };
-// };
+export const pokemonDetail = (id) => {
+    return async function (dispatch) {
+      const response = await axios.get(`http://localhost:3001/pokemon/${id}`)
+      return dispatch({ type: POKEMON_DETAIL, payload: response.data })
+    };
+};
 
 export const getPokemonByName = (name) => {
     return async function (dispatch) {
+        
         const response = await axios.get(`http://localhost:3001/pokemon?name=${name}`)
         return dispatch({ type: GET_POKEMON_BY_NAME, payload: response.data })
     }

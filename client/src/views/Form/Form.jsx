@@ -25,6 +25,8 @@ const Form = () => {
 	    weight: 0,
 	    types: [],
     });
+
+    console.log(form);
     
     useEffect(() => {
         dispatch(getTypes())
@@ -217,7 +219,7 @@ const Form = () => {
             <div>
                 <label>Types:</label>
                 <select
-                onChange={(event) => handleSelect(event)}
+                onChange={handleSelect}
                 name ="types">
                     {types.map((typ) =>{
                         return (
