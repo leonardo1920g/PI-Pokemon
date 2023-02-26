@@ -15,12 +15,23 @@ const Detail = () => {
   
     return (
         <div>
-            {pokemon.name && pokemon.types ?
+            {Array.isArray(pokemon) && pokemon.length > 0 ?
             <div>
-                <h1>name: {pokemon[0].name}</h1>
-            <h2>Life: {pokemon[0].hp}</h2>
+                <h1>{pokemon[0].name}</h1>
+                <img 
+                    src={pokemon[0].image} 
+                    alt="not found"                       
+                />
+                <h2>Life: {pokemon[0].hp}</h2>
+                <h2>Attack: {pokemon[0].attack}</h2>
+                <h2>Defense: {pokemon[0].defense}</h2>
+                <h2>Speed: {pokemon[0].speed}</h2>
+                <h2>Height: {pokemon[0].height}</h2>
+                <h2>Weight: {pokemon[0].weight}</h2>
+                <h2>Types: {pokemon[0].types}</h2>
+                
             </div>
-            : <p>Not found</p>
+            : <h1>LOADING...</h1>
             }
         </div>
     );
