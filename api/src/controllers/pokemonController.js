@@ -18,7 +18,21 @@ const cleanArrayAll = (arr) =>
         };
 });
 
-const cleanArray = (arr) =>
+const cleanArray = (data) => ({
+    id: data.id,
+    name: data.name,
+    hp: data.stats.find(stat => stat.stat.name === 'hp').base_stat,
+    attack: data.stats.find(stat => stat.stat.name === 'attack').base_stat,
+    defense: data.stats.find(stat => stat.stat.name === 'defense').base_stat,
+    speed: data.stats.find(stat => stat.stat.name === 'speed').base_stat,
+    height: data.height,
+    weight: data.weight,
+    types: data.types.map(type => type.type.name).sort().join(', '),
+    image: data.sprites.other['official-artwork'].front_default,
+    created: false,
+  });
+
+const cleanArray1 = (arr) =>
     arr.map((Data) => {   
         return {
             id: Data.id,
@@ -51,24 +65,64 @@ const getPokemonById = async (id, source) => {
 
     if (source === "api") {
         const pokemonRaw = (await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`)).data
-        const apiPokemon = cleanArray([pokemonRaw]);       
+        const apiPokemon = cleanArray1([pokemonRaw]);       
         return apiPokemon;
     };    
 };
 
+
+
+const cache = new Map();
+
 const getAllPokemons = async () => {
-
-    const databasePokemons = await Pokemon.findAll({include: {model: Type, attributes: ["name"]}});
-    
-    const api = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=100');
-    const response = api.data.results?.map(elemento => axios.get(elemento.url));
-    const responseApi = await axios.all(response);
-    const apiPokemons = cleanArrayAll(responseApi);
-    
+    const databasePokemons = await Pokemon.findAll({
+      include: { model: Type, attributes: ["name"] },
+    });
+  
+    let apiPokemons = [];
+    const cachedData = cache.get("apiPokemons");
+    if (cachedData) {
+      apiPokemons = cachedData;
+    } else {
+      let apiUrl = "https://pokeapi.co/api/v2/pokemon?limit=200";
+      let apiResponse = await axios.get(apiUrl);
+      let apiData = apiResponse.data;
+  
+      while (apiData.results.length) {
+        let response = await axios.all(apiData.results.map(result => axios.get(result.url)));
+        apiPokemons = [...apiPokemons, ...cleanArrayAll(response)];
+        
+        apiUrl = apiData.next;
+        if (apiUrl) {
+          apiResponse = await axios.get(apiUrl);
+          apiData = apiResponse.data;
+        } else {
+          break;
+        }
+      }
+  
+      cache.set("apiPokemons", apiPokemons);
+    }
+  
     return [...databasePokemons, ...apiPokemons];
+  };
 
-};
+// const getAllPokemons = async () => {
 
+//     const databasePokemons = await Pokemon.findAll({include: {model: Type, attributes: ["name"]}});
+    
+//     const api = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=200');
+//     const response = api.data.results?.map(elemento => axios.get(elemento.url));
+//     const responseApi = await axios.all(response);
+//     const apiPokemons = cleanArrayAll(responseApi);
+    
+//     return [...databasePokemons, ...apiPokemons];
+
+// };
+
+
+
+  
 const searchNameDb = async (name) => {
 
     const nameSearch = name.trim().toLowerCase();
@@ -83,7 +137,7 @@ const searchNameApi = async (name) => {
     try {
         const pokemonRaw = (
             await axios.get(`https://pokeapi.co/api/v2/pokemon/${name.trim().toLowerCase()}`)).data
-            return await cleanArray([pokemonRaw]);
+            return await cleanArray1([pokemonRaw]);
             
         } catch(error) {
             return [];
@@ -107,17 +161,3 @@ module.exports = {
     getAllPokemons,
     searchPokemonByName
 };
-
-// const searchPokemonByName = async (name) => {   
-    
-//     const nameSearch = name.trim().toLowerCase();
-//     const dataPokemon = await Pokemon.findAll({where: { name: nameSearch },include: { model: Type, attributes: ["name"] },});
-    
-//     console.log(dataPokemon);
-
-//     const pokemonRaw = (await axios.get(`https://pokeapi.co/api/v2/pokemon/${nameSearch}`)).data
-//     const apiPokemon = cleanArrayName([pokemonRaw])
-//     //const filteredApi = apiPokemon.filter((pokemon) => pokemon.name === nameSearch);
-
-//     return [...dataPokemon, ...apiPokemon];
-// };
