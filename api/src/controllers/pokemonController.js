@@ -70,8 +70,6 @@ const getPokemonById = async (id, source) => {
     };    
 };
 
-
-
 const cache = new Map();
 
 const getAllPokemons = async () => {
@@ -80,11 +78,13 @@ const getAllPokemons = async () => {
     });
   
     let apiPokemons = [];
+    let endPoint = "https://pokeapi.co/api/v2/pokemon";
+    let limit = "?limit=200"
     const cachedData = cache.get("apiPokemons");
     if (cachedData) {
       apiPokemons = cachedData;
     } else {
-      let apiUrl = "https://pokeapi.co/api/v2/pokemon?limit=200";
+      let apiUrl = endPoint+limit;
       let apiResponse = await axios.get(apiUrl);
       let apiData = apiResponse.data;
   
