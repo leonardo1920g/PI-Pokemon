@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { pokemonDetail } from "../../Redux/actions";
+import styles from "./Detail.module.css"
 
 const Detail = () => {    
 
@@ -14,9 +15,9 @@ const Detail = () => {
     }, [dispatch, id]);
   
     return (
-        <div>
+        <div className={styles.container}>
             {Array.isArray(pokemon) && pokemon.length > 0 ?
-            <div>
+            <div className={styles.card}>
                 <h1>{pokemon[0].name}</h1>
                 <img 
                     src={pokemon[0].image} 

@@ -1,16 +1,24 @@
-/*imagen de fondo*/
-.landing {  
-    background-image: url("../../Image/Landing.png"); /*lugar donde su ubica la imagen*/        
+.form{
+    background-image: url("../../Image/form.jpg");
     width: 100vw;
-    height: 100vh;    
+    height: 100vh;
+    background-attachment:fixed;   
     background-size: 100%;
-    display: flex;
-    align-items:center;
-    justify-content: center; 
+    display: grid;
+    place-items: center;
 }
 
-/*diseño del boton */
-.button {   
+.text1 {
+    color: white;
+}
+
+.text {
+    color: white;
+    border: 15px;
+    background-color: rgb(243, 63, 63);
+}
+
+.button{
     font: 80% sans-serif;/*tipo de fuente*/
     font-weight: 800; /*grosor de la letra*/
     background-color: rgb(243, 63, 63);/*color del fondo*/
@@ -21,9 +29,12 @@
     margin-top: 80px; /*pociciona el boton*/
 }
 
-/*interaccion del boton*/
 .button:hover {
     background-color: rgb(44, 97, 212);
     border: 5px solid rgb(245, 214, 77);
     color: rgb(245, 214, 77);
+}
+
+.error {
+    color: red;
 }

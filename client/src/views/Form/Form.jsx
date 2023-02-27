@@ -3,6 +3,7 @@ import axios from "axios"
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { getTypes } from "../../Redux/actions";
+import styles from "./Form.module.css"
 
 const Form = () => {
 
@@ -125,99 +126,120 @@ const Form = () => {
     };
 
     return (
-        <div>
+        <div className={styles.form}>
 
-            <h1>¿Are we going to create a Pokémon?</h1>
-            <p>enter the characteristics of your pokemon!</p>        
+            <h1 className={styles.text1} >¿Are we going to create a Pokémon?</h1>
+            <p className={styles.text1}>enter the characteristics of your pokemon!</p>        
 
-        <form onSubmit={submitHandler}>
+        <form 
+        className={styles.form}
+        onSubmit={submitHandler}>
             <div>
-                <label>Name:</label>
+                <label
+                className={styles.text}
+                >Name:</label>
                 <input 
                 type="text"
                 value={form.name}
                 onChange={changeHandler}
                 name="name"
                 />
-                {errors.name && <span>{errors.name}</span>}
+                {errors.name && <span className={styles.error}>{errors.name}</span>}
                 
             </div>
 
             <div>
-                <label>Image:</label>
+                <label
+                className={styles.text}
+                >Image:</label>
                 <input 
                 type="file"
                 value={form.image}
                 onChange={changeHandler}
                 name="image"
+                className= {styles.error}
                 />
                 
             </div>
 
             <div>
-                <label>Hp ("life"):</label>
+                <label
+                className={styles.text}
+                >Hp ("life"):</label>
                 <input 
                 type="number"
                 value={form.hp}
                 onChange={changeHandler}
                 name="hp"
                 />
-                {errors.hp && <span>{errors.hp}</span>}
+                {errors.hp && <span className={styles.error}>{errors.hp}</span>}
             </div>
 
             <div>
-                <label>Attack:</label>
+                <label
+                className={styles.text}
+                >Attack:</label>
                 <input 
                 type="number"
                 value={form.attack}
                 onChange={changeHandler}
                 name="attack"
                 />
-                {errors.attack && <span>{errors.attack}</span>}
+                {errors.attack && <span className={styles.error}>{errors.attack}</span>}
             </div>
 
             <div>
-                <label>Defense:</label>
+                <label
+                className={styles.text}
+                >Defense:</label>
                 <input type="number"
                 value={form.defense}
                 onChange={changeHandler}
                 name="defense"
                 />
-                {errors.defense && <span>{errors.defense}</span>}
+                {errors.defense && <span className={styles.error}>{errors.defense}</span>}
             </div>
 
             <div>
-                <label>Speed:</label>
+                <label
+                className={styles.text}
+                >Speed:</label>
                 <input type="number"
                 value={form.speed}
                 onChange={changeHandler}
                 name="speed"
                 />
-                {errors.speed && <span>{errors.speed}</span>}
+                {errors.speed && <span className={styles.error}>{errors.speed}</span>}
             </div>
 
             <div>
-                <label>Height:</label>
+                <label
+                className={styles.text}
+                >Height:</label>
                 <input type="number"
                 value={form.height}
                 onChange={changeHandler}
                 name="height"
                 />
-                {errors.height && <span>{errors.height}</span>}
+                {errors.height && <span className={styles.error}>{errors.height}</span>}
             </div>
 
             <div>
-                <label>Weight:</label>
+                <label
+                className={styles.text}
+                >Weight:</label>
                 <input type="number"
                 value={form.weight}
                 onChange={changeHandler}
                 name="weight"
                 />
-                {errors.weight && <span>{errors.weight}</span>}
+                {errors.weight && <span className={styles.error}>{errors.weight}</span>}
             </div>
 
             <div>
-                <label>Types:</label>
+                <label
+                className={styles.text}
+                >Types:</label>
                 <select
                 onChange={handleSelect}
                 name ="types">
@@ -232,6 +254,7 @@ const Form = () => {
             </div>
 
             <button
+                className={styles.button}
                 type="submit"
                 >CREATE POKEMON</button>
         </form>

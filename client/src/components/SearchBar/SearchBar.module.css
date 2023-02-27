@@ -1,0 +1,28 @@
+.searchBar { 
+     
+    left: 48%;
+    top: 45%;    
+    padding: 10px;
+};
+
+.body.button {
+    background-color: blue
+};
+
+.input {
+    outline: none;
+    box-sizing: border-box;
+    height: 60px;
+    width: 0;
+    padding: 0 20px;
+    color: black;
+    border-radius: 50px;
+    font-size: 20px;
+    border: 1px solid red;
+    transition: all .7s ease;
+}
+
+::placeholder {
+    color: rgb(71, 66, 66);
+}
+

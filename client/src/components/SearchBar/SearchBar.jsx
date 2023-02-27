@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux"
 import { getPokemonByName } from "../../Redux/actions";
+import styles from "./SearchBar.module.css"
 
 const SearchBar = () => {
 
@@ -19,13 +20,15 @@ const SearchBar = () => {
     }
 
     return (
-        <div>
+        <div className={styles.searchBar}>
             <button
+            className={styles.button}
             type="submit"
             onClick={handlerSubmit}
             >SEARCH</button>
 
             <input
+            className={styles.input}
             type="text"
             placeholder="ENTER FULL NAME..."
             onChange={handlerInputChange}

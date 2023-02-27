@@ -1,7 +1,20 @@
-.NavBar{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    border-radius: 15px;
-    border: 1px solid black;
+.NavBar{    
+    display: flex;    
+    justify-content: space-around;    
+    background-color: rgb(230, 37, 37);
+    font-family: 'calibri';
+}
+
+.link{
+    color: white;
+    background: transparent;
+    padding: 10px 0; /*centra los enlaces*/
+    text-decoration: none; /*quita las lineas de los links*/
+    font-weight: 800;
+    width: 12%; /* le da el tamaño del fondo*/
+}
+
+.link:hover {
+    width: 12%; /* le da el tamaño del fondo*/
+    background: rgb(61, 57, 57); 
 }

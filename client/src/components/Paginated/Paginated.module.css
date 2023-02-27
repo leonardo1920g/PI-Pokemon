@@ -5,18 +5,16 @@
 }
 
 .prev {
-  width: 50px;
-  height: 25px;
+  width: 50px;  
   cursor: pointer;
-  background: #3903fa;
-  border: 1px solid #5ccda7;
-  border-radius: 4px;
+  background: rgb(39, 37, 37);  
+  border-radius: 5px;
+  color: white;
   /* outline: none; */
   transition: 0.2s ease-in-out;
 }
 
-.btn:hover {
-  transition: 0.5s ease-in-out;
-  background: #5ccda7;
+.prev:hover {
+  background: rgb(230, 37, 37);
 }
   
