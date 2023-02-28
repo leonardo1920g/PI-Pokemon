@@ -11,7 +11,7 @@ const Home = () => {
     useEffect(() => {
         dispatch(getPokemons());
         dispatch(getTypes());
-    },[dispatch]);     
+    },[dispatch]); 
 
     return(
 

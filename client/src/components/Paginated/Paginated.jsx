@@ -9,7 +9,27 @@ const Paginated = ({ showPerPage, pokemons, paginate, page }) => {
         pageNumber.push(i)
     };
 
+    let startPage = page - 5;
+    let endPage = page + 4;
+
+    if (startPage < 1) {
+        endPage += Math.abs(startPage) + 1;
+        startPage = 1;
+    }
+
+    if (endPage > total) {
+        startPage -= endPage - total;
+        endPage = total;
+    }
+
+    const visiblePages = pageNumber.slice(startPage - 1, endPage);
+
     return (
+
+        <>
+
+        { total > 1 && (
+
         <div className={styles.paginate}>
 
             <button
@@ -20,12 +40,13 @@ const Paginated = ({ showPerPage, pokemons, paginate, page }) => {
             Prev
             </button>        
 
-            {pageNumber.length > 0 && pageNumber.map((number) => {
+            {visiblePages.length > 0 && visiblePages.map((number) => {
                 return (
                     <button
                     className={styles.prev}
                     key={number}
                     onClick={() => paginate(number)}
+                    disabled={page === number ? true : false}
                     >
                     {number}
                     </button>
@@ -39,7 +60,11 @@ const Paginated = ({ showPerPage, pokemons, paginate, page }) => {
             >
             Next
             </button>
-            </div>        
+            </div>
+            
+        )}
+
+        </>       
     );
 };
 

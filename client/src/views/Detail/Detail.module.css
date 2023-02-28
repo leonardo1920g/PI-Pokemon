@@ -1,6 +1,103 @@
 .container {
-    background-color: black;
+    background-color: greenyellow; 
+    display: flex;  
 }
 
-.card {
+.card{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 160px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chart{
+    position: absolute;
+    background-color: rgb(39, 37, 37);
+    width: 1000px;
+    height: 900px;
+    top: 20px;
+    left: 100px;
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+.circle{
+    position: absolute;
+    background-color: rgb(250, 214, 8);
+    width: 800px;
+    height: 800px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50px;
+    left: -50px;
+}
+
+.image {
+    position: absolute;
+    max-width: 900px;
+    top: 140px;
+    left: 150px;
+}
+
+.image:hover{
+    transform: translateY(30px) ;
+}
+
+.form{    
+    position: absolute;
+    background: rgba(0,0,0,.7);     
+    width: 100%;      
+    max-width: 400px;
+    margin-top: 20px;  
+    z-index: 10; 
+    top: 220px;
+    left: 800px; 
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 50px;
+    overflow: hidden;   
+}
+
+.form:hover{
+    transform: translateY(10px) ;
+}
+
+.name {
+    position: absolute;
+    color: white;
+    font-size: 90px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    z-index: 20; 
+    top: 5px;
+    left: 50%;  
+    background-color: rgb(230, 37, 37);
+    padding: 10px 30px;
+    border-bottom-left-radius: 50px;
+}
+
+.name:hover{
+    transform: translateY(10px) ;
+    color: rgb(37, 175, 230);
+}
+
+.text{    
+    color: white;
+    background: rgb(230, 37, 37);
+    display: flex;
+    justify-content: space-between;
+    border-bottom-left-radius: 10px;
+    font-size: 17px;
+}
+
+.info{    
+    color: white;
+}
+
+.info:hover{
+    transform: translateY(10px);
+    color: rgb(250, 214, 8);
 }

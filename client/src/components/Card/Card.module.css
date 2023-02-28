@@ -1,20 +1,71 @@
-.Card{
-    
-    color: black;
-    border: 1px solid black;
-    width: fit-content;
-    height: fit-content;
-    border-radius: 10px;
-    
-    
+.Card{        
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    width: 200px;
+    height: 300px;
+    background: rgb(39, 37, 37);
+    box-shadow: 3px 3px 10px; /*le da profundida a los elementos*/ 
+    font-size: 16px;
+    position: relative;
+    overflow: hidden;
+    transform: translate(0px);
 };
 
-.link{
-    text-decoration: none;
-    color: red;
+.Card.link {    
+    color: white;  
 }
 
-.na{
-    
-    color: black;
+.name{
+    color: white;
+    background-color: rgb(230, 37, 37);
+    text-decoration: none;
+    width: 140px;
+    position: absolute;        
+    padding: 2px 23px;
+    font-size: 28px; 
+    right: 0; 
+    border-bottom-left-radius: 10px;     
 }
+
+.name:hover{
+    transform: translateY(10px) ;
+}
+
+.circle{
+    background-color: rgb(250, 214, 8);
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    position: absolute;
+    top: 80px;
+    left: 24px;
+}
+
+.image{
+    position: absolute;
+    top: 80px;
+    left: 24px;
+}
+
+.image:hover{
+    transform: translateY(10px) ;
+
+}
+
+.types {
+    position: absolute;
+    color: white;
+    background-color: rgb(37, 175, 230);
+    top: 240px;
+    padding: 2px 15px;
+    border-top-right-radius: 10px;
+    font-size: 15px;
+}
+
+.types:hover {
+    transform: translateY(10px) ;
+}
+
+
+
+

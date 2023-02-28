@@ -12,9 +12,26 @@
     text-decoration: none; /*quita las lineas de los links*/
     font-weight: 800;
     width: 12%; /* le da el tamaño del fondo*/
+    border-bottom-left-radius: 10px; /*redondea la esquina de abajo lado izquiero */
+    border-top-right-radius: 10px; /*redondea la esquina de arriba lado derecho */
 }
 
 .link:hover {
     width: 12%; /* le da el tamaño del fondo*/
     background: rgb(61, 57, 57); 
+    color: rgb(230, 37, 37);
+    transform: translateY(10px) ;
+}
+
+.image{
+    transform: translateY(0px) ; 
+}
+
+.image:hover{
+    transform: translateY(10px) ; 
+    border-bottom-left-radius: 10px; /*redondea la esquina de abajo lado izquiero */
+    border-top-right-radius: 10px;
+    border: 5px solid rgb(61, 57, 57);
+    background: rgb(230, 37, 37);
+    overflow: hidden; 
 }

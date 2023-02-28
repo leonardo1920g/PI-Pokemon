@@ -2,11 +2,11 @@
 .landing {  
     background-image: url("../../Image/Landing.png"); /*lugar donde su ubica la imagen*/        
     width: 100vw;
-    height: 100vh;    
+    height: 100vh;
+    background-attachment:fixed;   
     background-size: 100%;
-    display: flex;
-    align-items:center;
-    justify-content: center; 
+    display: grid;
+    place-items: center;
 }
 
 /*diseño del boton */
@@ -26,4 +26,5 @@
     background-color: rgb(44, 97, 212);
     border: 5px solid rgb(245, 214, 77);
     color: rgb(245, 214, 77);
+    transform: translateY(10px);
 }

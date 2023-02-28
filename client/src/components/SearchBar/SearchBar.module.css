@@ -1,28 +1,32 @@
-.searchBar { 
-     
-    left: 48%;
-    top: 45%;    
-    padding: 10px;
-};
-
-.body.button {
-    background-color: blue
-};
-
 .input {
-    outline: none;
-    box-sizing: border-box;
-    height: 60px;
-    width: 0;
-    padding: 0 20px;
-    color: black;
-    border-radius: 50px;
-    font-size: 20px;
-    border: 1px solid red;
-    transition: all .7s ease;
+     
+    border: none;      
+    height: 60%; 
+    margin-top: 6px;
+    border-radius: initial;
+    border-top-right-radius: 10px;
+    
+}
+
+.input:hover{
+    transform: translateY(10px) ;
 }
 
 ::placeholder {
-    color: rgb(71, 66, 66);
+    color: rgb(71, 66, 66); 
+        
 }
 
+.button {
+    background:rgb(71, 66, 66);
+    color: white;
+    border: none;
+    padding: 7px 30px;
+    border-bottom-left-radius: 10px;    
+}
+
+.button:hover{
+    background: rgb(250, 214, 8);
+    color: rgb(44, 97, 212);
+    transform: translateY(10px) ;
+}

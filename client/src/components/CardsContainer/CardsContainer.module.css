@@ -1,10 +1,32 @@
-.CardsContainer{
-    
+.CardsContainer {    
     width: 100vw;
     display: flex;
     justify-content: center;
     flex-direction: row;
-    border-radius: 15px;
     flex-wrap: wrap;
     gap: 1em;
+    margin-top: 30px;  
+    background-color: transparent; 
+    padding-bottom: 30px;          
 }
+
+.filter {
+    justify-content: center;
+    background: rgb(230, 37, 37);
+    flex-direction: row;
+    padding: 8px 13px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    color:black;
+    border: none;  
+    box-shadow: 3px 3px 10px;
+    justify-content: space-around; 
+     
+}
+
+.filter:hover {
+    background: rgb(39, 37, 37);
+    color: white;
+    transform: translateY(10px);
+}
+

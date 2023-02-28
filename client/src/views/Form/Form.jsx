@@ -126,14 +126,20 @@ const Form = () => {
     };
 
     return (
-        <div className={styles.form}>
-
-            <h1 className={styles.text1} >¿Are we going to create a Pokémon?</h1>
-            <p className={styles.text1}>enter the characteristics of your pokemon!</p>        
+        <div className={styles.init}>
+            <p>¿ Are we going to create a Pokémon ?</p>
+        <div className={styles.container}>                    
 
         <form 
         className={styles.form}
         onSubmit={submitHandler}>
+            <div>
+                <p 
+                className={styles.text1}>
+                Enter the characteristics of your pokemon !
+                </p>
+            </div>
+
             <div>
                 <label
                 className={styles.text}
@@ -143,6 +149,8 @@ const Form = () => {
                 value={form.name}
                 onChange={changeHandler}
                 name="name"
+                className={styles.input}
+                placeholder="Write the name..."
                 />
                 {errors.name && <span className={styles.error}>{errors.name}</span>}
                 
@@ -157,7 +165,7 @@ const Form = () => {
                 value={form.image}
                 onChange={changeHandler}
                 name="image"
-                className= {styles.error}
+                className= {styles.input}
                 />
                 
             </div>
@@ -171,6 +179,8 @@ const Form = () => {
                 value={form.hp}
                 onChange={changeHandler}
                 name="hp"
+                className={styles.input}
+                
                 />
                 {errors.hp && <span className={styles.error}>{errors.hp}</span>}
             </div>
@@ -184,6 +194,8 @@ const Form = () => {
                 value={form.attack}
                 onChange={changeHandler}
                 name="attack"
+                className={styles.input}
+                
                 />
                 {errors.attack && <span className={styles.error}>{errors.attack}</span>}
             </div>
@@ -196,6 +208,8 @@ const Form = () => {
                 value={form.defense}
                 onChange={changeHandler}
                 name="defense"
+                className={styles.input}
+                
                 />
                 {errors.defense && <span className={styles.error}>{errors.defense}</span>}
             </div>
@@ -208,6 +222,8 @@ const Form = () => {
                 value={form.speed}
                 onChange={changeHandler}
                 name="speed"
+                className={styles.input}
+                
                 />
                 {errors.speed && <span className={styles.error}>{errors.speed}</span>}
             </div>
@@ -220,6 +236,8 @@ const Form = () => {
                 value={form.height}
                 onChange={changeHandler}
                 name="height"
+                className={styles.input}
+                
                 />
                 {errors.height && <span className={styles.error}>{errors.height}</span>}
             </div>
@@ -228,10 +246,12 @@ const Form = () => {
                 <label
                 className={styles.text}
                 >Weight:</label>
-                <input type="number"
+                <input type="text"
                 value={form.weight}
                 onChange={changeHandler}
                 name="weight"
+                className={styles.input}
+                
                 />
                 {errors.weight && <span className={styles.error}>{errors.weight}</span>}
             </div>
@@ -241,23 +261,30 @@ const Form = () => {
                 className={styles.text}
                 >Types:</label>
                 <select
+                className={styles.input}
                 onChange={handleSelect}
-                name ="types">
+                name ="types"
+                >                
                     {types.map((typ) =>{
                         return (
                         <option key={typ.id} value={typ.name}>{typ.name}</option>
                     )})}                    
                 </select>
                 <ul>
-                    <li>{form.types.map(elem => elem + " - ")}</li>
+                    <li className={styles.list}>{form.types.map(elem => elem + " - ")}</li>
                 </ul>
             </div>
 
-            <button
+            <div>
+                <button
                 className={styles.button}
                 type="submit"
-                >CREATE POKEMON</button>
+                >CREATE POKEMON
+                </button>
+            </div>
+
         </form>
+        </div>
 
         </div>
     )

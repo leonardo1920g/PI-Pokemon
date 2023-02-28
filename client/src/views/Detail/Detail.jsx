@@ -18,19 +18,45 @@ const Detail = () => {
         <div className={styles.container}>
             {Array.isArray(pokemon) && pokemon.length > 0 ?
             <div className={styles.card}>
-                <h1>{pokemon[0].name}</h1>
+
+                <h1 className={styles.name}>{pokemon[0].name}</h1>
+
+                <div> 
+                <div className={styles.chart}>    
+                <div className={styles.circle}>             
                 <img 
                     src={pokemon[0].image} 
-                    alt="not found"                       
+                    alt="not found" 
+                    className={styles.image}                      
                 />
-                <h2>Life: {pokemon[0].hp}</h2>
-                <h2>Attack: {pokemon[0].attack}</h2>
-                <h2>Defense: {pokemon[0].defense}</h2>
-                <h2>Speed: {pokemon[0].speed}</h2>
-                <h2>Height: {pokemon[0].height}</h2>
-                <h2>Weight: {pokemon[0].weight}</h2>
-                <h2>Types: {pokemon[0].types}</h2>
-                
+                </div>
+                </div>
+                </div>
+
+                <form className={styles.form}>                   
+                    
+                    <label className={styles.text}>Life:</label>
+                    <h2 className={styles.info}>{pokemon[0].hp}</h2>
+
+                    <label className={styles.text}>Attack:</label>
+                    <h2 className={styles.info}>{pokemon[0].attack}</h2>
+                    
+                    <label className={styles.text}>Defense:</label>
+                    <h2 className={styles.info}>{pokemon[0].defense}</h2>
+
+                    <label className={styles.text}>Speed:</label>
+                    <h2 className={styles.info}>{pokemon[0].speed}</h2>
+
+                    <label className={styles.text}>Height:</label>
+                    <h2 className={styles.info}>{pokemon[0].height}</h2>
+
+                    <label className={styles.text}>Weight:</label>
+                    <h2 className={styles.info}>{pokemon[0].weight}</h2>
+
+                    <label className={styles.text}>Types:</label>
+                    <h2 className={styles.info}>{pokemon[0].types}</h2>
+                </form>
+
             </div>
             : <h1>LOADING...</h1>
             }

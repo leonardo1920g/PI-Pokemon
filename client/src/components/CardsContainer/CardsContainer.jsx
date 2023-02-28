@@ -47,22 +47,24 @@ const CardsContainer = () => {
         setPage(1); 
         history.replace("/home")       
     };
+
+    
     
     return (       
         
         <div>           
 
-            <select onChange={handlerSort}>
+            <select onChange={handlerSort} className={style.filter}>
                 <option value="asc">ORDER A - Z</option>
                 <option value="des">ORDER Z - A</option>
             </select>
 
-            <select onChange={handlerAttack}>
+            <select onChange={handlerAttack} className={style.filter}>
                 <option value="strong">STRONG ATTACK</option>
                 <option value="weak">WEAK ATTACK</option>
             </select>
 
-            <select onChange={handlerFilterTypes}>
+            <select onChange={handlerFilterTypes} className={style.filter}>
             <option value="All" hidden>TYPES</option>
                         
             {types.length &&types.map((type) => (
@@ -72,7 +74,7 @@ const CardsContainer = () => {
             ))}
             </select>
             
-            <select onChange={handlerFilterCreated}>
+            <select onChange={handlerFilterCreated} className={style.filter}>
                 <option value="created">CREATED</option>
                 <option value="existing">EXISTING</option>
             </select>
@@ -93,9 +95,9 @@ const CardsContainer = () => {
                     image={pokemon.image}
                     types={pokemon.types}
                     />
-                    );
+                    )
                 })
-                };
+                }
             </div>
         
         </div>

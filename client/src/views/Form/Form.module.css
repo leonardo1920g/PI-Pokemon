@@ -1,40 +1,91 @@
-.form{
+.init{
     background-image: url("../../Image/form.jpg");
     width: 100vw;
-    height: 100vh;
+    height: 170vh;
     background-attachment:fixed;   
     background-size: 100%;
-    display: grid;
-    place-items: center;
+    display: grid;   
+    color: white; 
+    font-size: 30px; 
+    margin: auto;     
 }
 
 .text1 {
+    font-weight: normal;
+    color: white; 
+    font-size: 20px; 
+}
+
+.form {
+    background: rgba(0,0,0,.6);     
+    max-width: 650px;
+    margin: auto;
+    padding: 8px 35px;
+    margin-top: 10px;
+    padding-bottom: 50px;
+    border-radius: 3px;
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 50px;    
+    width: 100%;
+}
+
+.input {
+    background: rgba(0,0,0,.6);    
+    position: relative;
     color: white;
+    font-size: 15px;
+    border: none;
+    padding: 8px 50px;      
+    border-top-right-radius: 10px;
+    border-bottom: 1px solid rgb(230, 37, 37);
+    margin-bottom: 10px;
+    
 }
 
 .text {
+    
+    font-weight: normal;
     color: white;
-    border: 15px;
-    background-color: rgb(243, 63, 63);
+    font-size: 16px;
+    position: relative;
+    background: rgb(230, 37, 37);
+    padding: 5px 70px;
+    margin-top: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom: 1px solid rgb(230, 37, 37);
+    text-align: center;    
 }
 
-.button{
-    font: 80% sans-serif;/*tipo de fuente*/
-    font-weight: 800; /*grosor de la letra*/
-    background-color: rgb(243, 63, 63);/*color del fondo*/
-    border-radius: 10px; /*crea los bordes curbos*/
-    padding: 8px 30px;  /*le da la extencion al boton */
-    border: 5px solid white; /*color del border*/
-    color: white; /*color de la letra*/
-    margin-top: 80px; /*pociciona el boton*/
+.list {
+    background: rgba(0,0,0,.6);
+    color: rgb(230, 37, 37);
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;    
+    border-bottom: 1px solid rgb(230, 37, 37);
+    margin-bottom: 10px;
 }
 
-.button:hover {
-    background-color: rgb(44, 97, 212);
-    border: 5px solid rgb(245, 214, 77);
+.button {
+    font-weight: normal;
+    color: white;
+    font-size: 16px;
+    position: relative;
+    background: rgb(230, 37, 37);
+    padding: 8px 30px;
+    margin-top: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border: none;
+    
+}
+
+.button:hover{
+    background: rgb(44, 97, 212);
     color: rgb(245, 214, 77);
 }
 
 .error {
-    color: red;
+    color: rgb(245, 214, 77);
+    font-size: 16px;
+    display: block;
 }
