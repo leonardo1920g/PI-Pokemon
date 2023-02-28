@@ -1,11 +1,22 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
 import style from "./NavBar.module.css";
 import logo from "../../Image/logo.png";
+import { getPokemons } from "../../Redux/actions";
+import { useDispatch } from "react-redux";
 
 
 const NavBar = () => { 
+
+    const dispatch = useDispatch();
+    const history = useHistory();
+
+    const resetCardContainer = async () => {
+        
+        dispatch(getPokemons())
+        history.push("/home");
+    }
 
     return (
         <div className={style.NavBar}>
@@ -17,7 +28,7 @@ const NavBar = () => {
             />
             </a>
             
-            <Link className={style.link} to="/home">POKEMONS</Link>
+            <Link className={style.link} onClick={resetCardContainer} to="/home">POKEMONS</Link>
             <Link className={style.link} to="/create">CREATED POKEMON</Link>
                         
             <SearchBar/>

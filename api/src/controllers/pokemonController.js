@@ -73,8 +73,15 @@ const getPokemonById = async (id, source) => {
 const cache = new Map();
 
 const getAllPokemons = async () => {
-    const databasePokemons = await Pokemon.findAll({
+    const database = await Pokemon.findAll({
       include: { model: Type, attributes: ["name"] },
+    });
+
+    const databasePokemons = database.map((pokemon) => {
+        return {
+            ...pokemon.toJSON(),
+       types: pokemon.types.map((type) => type.name),
+        };
     });
   
     let apiPokemons = [];
