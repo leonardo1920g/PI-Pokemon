@@ -75,8 +75,10 @@ const CardsContainer = () => {
             </select>
             
             <select onChange={handlerFilterCreated} className={style.filter}>
+            {!pokemons.length > 0 && <p className={style.create}></p>} 
                 <option value="created">CREATED</option>
                 <option value="existing">EXISTING</option>
+                
             </select>
         
             <Paginated 
