@@ -58,7 +58,7 @@ const Detail = () => {
                 </form>
 
             </div>
-            : <h1>LOADING...</h1>
+            : <p className={styles.loading}></p>
             }
         </div>
     );

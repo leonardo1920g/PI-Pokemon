@@ -104,30 +104,47 @@ const Form = () => {
     //6 vamos a enviar el nuevo pokemon a la ruta de creacion de la base de datos 
     const submitHandler = (event) => {
 
-        event.preventDefault(); //evita que se recargue la pagina
+        event.preventDefault();
 
-        if (!errors.name) {
-
-            if(pokemons.find((pokemon) => pokemon.name === form.name)){
-                alert("There's already a pokemon with that name");
-                setForm({});
-                history.push("/home");
-            }
-        
-            axios.post("http://localhost:3001/pokemon",form)
-            setForm({});
-            alert("Let's check out ours Pokemons!");
+    if (!Object.keys(errors).length) {
+        if (pokemons.find((pokemon) => pokemon.name === form.name)) {
+            alert("There's already a pokemon with that name");
+            setForm({
+                name: "",
+                image: "",
+                hp: 0,
+                attack: 0,
+                defense: 0,
+                speed: 0,
+                height: 0,
+                weight: 0,
+                types: [],
+            });
             history.push("/home");
-
-        } else if (errors.name){
-            alert("Error. Please try again");
-            setForm({});
-        }        
+        } else {
+            axios.post("http://localhost:3001/pokemon", form);
+            setForm({
+                name: "",
+                image: "",
+                hp: 0,
+                attack: 0,
+                defense: 0,
+                speed: 0,
+                height: 0,
+                weight: 0,
+                types: [],
+            });
+            alert("Let's check out our Pokemons!");
+            history.push("/home");
+        }
+    } else {
+        alert("Error. Please try again");
+    }      
     };
 
     return (
         <div className={styles.init}>
-            <p>¿ Are we going to create a Pokémon ?</p>
+            <p>Let's create a pokemon !...</p>
         <div className={styles.container}>                    
 
         <form 
@@ -157,17 +174,15 @@ const Form = () => {
             </div>
 
             <div>
-                <label
-                className={styles.text}
-                >Image:</label>
+                <label className={styles.text}>Image:</label>
                 <input 
-                type="file"
+                type="text"
                 value={form.image}
                 onChange={changeHandler}
                 name="image"
                 className= {styles.input}
-                />
-                
+                placeholder="Paste the image link..."
+                />                
             </div>
 
             <div>
@@ -246,7 +261,8 @@ const Form = () => {
                 <label
                 className={styles.text}
                 >Weight:</label>
-                <input type="text"
+                <input 
+                type="number"
                 value={form.weight}
                 onChange={changeHandler}
                 name="weight"

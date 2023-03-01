@@ -40,6 +40,8 @@
     max-width: 900px;
     top: 140px;
     left: 150px;
+    width: 500px;
+    height: 500px;
 }
 
 .image:hover{
@@ -67,13 +69,13 @@
 .name {
     position: absolute;
     color: white;
-    font-size: 90px;
+    font-size: 80px;
     width: 100%;
     display: flex;
     justify-content: space-between;
     z-index: 20; 
     top: 5px;
-    left: 50%;  
+    left: 10%;  
     background-color: rgb(230, 37, 37);
     padding: 10px 30px;
     border-bottom-left-radius: 50px;
@@ -100,4 +102,14 @@
 .info:hover{
     transform: translateY(10px);
     color: rgb(250, 214, 8);
+}
+
+.loading {
+    background-image: url("../../Image/loading.png");       
+    width: 100vw;
+    height: 100vh;
+    background-attachment:fixed;   
+    background-size: 100%;
+    display: grid;
+    place-items: center;
 }

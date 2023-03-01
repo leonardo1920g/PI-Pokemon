@@ -30,3 +30,13 @@
     transform: translateY(10px);
 }
 
+.loading {
+    background-image: url("../../Image/loading.png");       
+    width: 100vw;
+    height: 100vh;
+    background-attachment:fixed;   
+    background-size: 100%;
+    display: grid;
+    place-items: center;
+}
+

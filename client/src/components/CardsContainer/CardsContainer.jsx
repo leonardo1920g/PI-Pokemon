@@ -86,6 +86,8 @@ const CardsContainer = () => {
             page={page}
             />
 
+            {!pokemons.length > 0 && <p className={style.loading}></p>}
+
             <div className={style.CardsContainer}>
                 {shownPokemons.map(pokemon =>{
                     return (<Card
