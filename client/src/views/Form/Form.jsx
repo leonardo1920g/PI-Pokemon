@@ -144,7 +144,7 @@ const Form = () => {
 
     return (
         <div className={styles.init}>
-            <p>Let's create a pokemon !...</p>
+            <p className={styles.title}>Let's create a pokemon !...</p>
         <div className={styles.container}>                    
 
         <form 

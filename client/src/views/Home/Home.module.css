@@ -1,8 +1,15 @@
 .home {
-    background-color:greenyellow;   
+    position: absolute;
+    background-color:greenyellow; 
+    width: 100%; 
+    background-size: cover; 
+    height: 140vh;
 }
 
 .text {
     color: rgb(39, 37, 37);
+    font-size: 50px;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 

@@ -1,21 +1,24 @@
 .paginate{
   margin-top: 30px;
   display: flex;
-  justify-items: center;
-  align-items: center;
+  justify-content: center;
+  gap: 20px; /*espacio entre botones*/ 
 }
 
 .prev {
   width: 50px;  
-  cursor: pointer;
-  background: rgb(39, 37, 37);  
-  border-radius: 5px;
-  color: white;
-  
+  background:rgb(230, 37, 37);  
+  color: black;
+  border: none;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 8px 10px;
+  box-shadow: 3px 3px 10px ;
 }
 
 .prev:hover {
-  background: rgb(230, 37, 37);
+  background: rgb(39, 37, 37);
+  color: white;
   transform: translateY(10px);
 }
   

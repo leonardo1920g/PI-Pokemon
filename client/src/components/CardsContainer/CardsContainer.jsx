@@ -47,12 +47,12 @@ const CardsContainer = () => {
         setPage(1); 
         history.replace("/home")       
     };
-
-    
     
     return (       
         
-        <div>           
+        <div className={style.elements}>   
+
+            {!pokemons.length > 0 && <p className={style.loading}></p>}        
 
             <select onChange={handlerSort} className={style.filter}>
                 <option value="asc">ORDER A - Z</option>
@@ -65,31 +65,27 @@ const CardsContainer = () => {
             </select>
 
             <select onChange={handlerFilterTypes} className={style.filter}>
-            <option value="All" hidden>TYPES</option>
+                <option value="All" hidden>TYPES</option>
                         
-            {types.length &&types.map((type) => (
+                {types.length &&types.map((type) => (
                 <option key={type.id} value={type.name}>
                   {type.name.charAt(0).toUpperCase() + type.name.substring(1)}
                 </option>
             ))}
             </select>
-            
+
             <select onChange={handlerFilterCreated} className={style.filter}>
-            {!pokemons.length > 0 && <p className={style.create}></p>} 
                 <option value="created">CREATED</option>
-                <option value="existing">EXISTING</option>
-                
-            </select>
-        
+                <option value="existing">EXISTING</option>              
+            </select>    
+      
             <Paginated 
             showPerPage={showPerPage}
             pokemons={pokemons.length}
             paginate={paginate}
             page={page}
             />
-
-            {!pokemons.length > 0 && <p className={style.loading}></p>}
-
+            
             <div className={style.CardsContainer}>
                 {shownPokemons.map(pokemon =>{
                     return (<Card

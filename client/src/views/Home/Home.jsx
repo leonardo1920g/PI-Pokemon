@@ -14,10 +14,10 @@ const Home = () => {
     },[dispatch]); 
 
     return(
-
-        <div className={styles.home}>           
-            <h1 className={styles.text}>WELCOME POKEMON MASTER</h1>
-            <CardsContainer />        
+        <div>
+            <div className={styles.home}>     
+                <CardsContainer />        
+            </div>
         </div>
     )
 };
