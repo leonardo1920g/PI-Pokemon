@@ -32,6 +32,8 @@ const createPokemonHandler = async (req, res) => {
     const {name, image, hp, attack, defense, speed, height, weight, typeOne, typeTwo} = req.body;
     
     try {
+
+        if(!name || !image || !hp || !attack || !defense) throw Error("Missing data");
         const newPokemon = await createPokemon(name, image, hp, attack, defense, speed, height, weight, typeOne, typeTwo);
         res.status(200).json({data: newPokemon, message: "POKEMON CREATED SUCCESSFULLY"});
     } catch (error) {
