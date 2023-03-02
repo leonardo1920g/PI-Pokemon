@@ -33,17 +33,34 @@ const rootReducer = (state = initialState, action) => { // recibe el estado inic
             return {...state, types: action.payload}
 
         case FILTER_TYPES:  
-        
+
             const allPokemons = state.allPokemons;
             let typesFiltered;
-
+          
             if (action.payload === 'All') {
                 typesFiltered = allPokemons;
             } else {
-                typesFiltered = allPokemons.filter(pokemon => pokemon.types.map(type => type.toLowerCase()).includes(action.payload.toLowerCase()));
+                typesFiltered = allPokemons.filter(pokemon => {
+                const types = pokemon.types.split(", ");
+            
+                return types.map(type => type.toLowerCase()).includes(action.payload.toLowerCase());
+                });
             }
-
+          
             return { ...state, pokemons: typesFiltered }
+
+        // case FILTER_TYPES:  
+        
+        //     const allPokemons = state.allPokemons;
+        //     let typesFiltered;
+
+        //     if (action.payload === 'All') {
+        //         typesFiltered = allPokemons;
+        //     } else {
+        //         typesFiltered = allPokemons.filter(pokemon => pokemon.types.map(type => type.toLowerCase()).includes(action.payload.toLowerCase()));
+        //     }
+
+        //     return { ...state, pokemons: typesFiltered }
 
         case FILTER_CREATED:
 
