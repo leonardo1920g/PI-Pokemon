@@ -24,7 +24,8 @@ const Form = () => {
 	    speed: 0, 
 	    height: 0, 
 	    weight: 0,
-	    types: [],
+	    typeOne: "",
+        typeTwo: ""
     });
 
     console.log(form);
@@ -34,7 +35,18 @@ const Form = () => {
     },[dispatch])
     
     //2-vamos a validar que la informacion que se va ingresar al estado sea correcta con lo rrequerido
-    const [errors, setErrors] = useState({});
+    const [errors, setErrors] = useState({
+        name: "",
+	    image: "",
+	    hp: 0,  
+	    attack: 0, 
+	    defense: 0, 
+	    speed: 0, 
+	    height: 0, 
+	    weight: 0,
+	    typeOne: "",
+        typeTwo: ""
+    });
 
     //3-cambia el estado global//recibe la informacion y la guarda en el estado
     const changeHandler = (event) => {
@@ -94,12 +106,19 @@ const Form = () => {
         return errors;
     };
 
-    const handleSelect = (event) => {
+    const handleTypeOne = (event) => {
 
         setForm({
-            ...form, types: [...form.types, event.target.value]
+            ...form, typeOne: [...form.typeOne, event.target.value]
         });
-    };    
+    };  
+    
+    const handleTypeTwo = (event) => {
+
+        setForm({
+            ...form, typeTwo: [...form.typeTwo, event.target.value]
+        });
+    };
 
     //6 vamos a enviar el nuevo pokemon a la ruta de creacion de la base de datos 
     const submitHandler = (event) => {
@@ -118,7 +137,8 @@ const Form = () => {
                 speed: 0,
                 height: 0,
                 weight: 0,
-                types: [],
+                typeOne: "",
+                typeTwo: ""
             });
             history.push("/home");
         } else {
@@ -132,7 +152,8 @@ const Form = () => {
                 speed: 0,
                 height: 0,
                 weight: 0,
-                types: [],
+                typeOne: "",
+                typeTwo: ""
             });
             alert("Let's check out our Pokemons!");
             history.push("/home");
@@ -275,10 +296,10 @@ const Form = () => {
             <div>
                 <label
                 className={styles.text}
-                >Types:</label>
+                >Type One:</label>
                 <select
                 className={styles.input}
-                onChange={handleSelect}
+                onChange={handleTypeOne}
                 name ="types"
                 >                
                     {types.map((typ) =>{
@@ -286,9 +307,22 @@ const Form = () => {
                         <option key={typ.id} value={typ.name}>{typ.name}</option>
                     )})}                    
                 </select>
-                <ul>
-                    <li className={styles.list}>{form.types.map(elem => elem + " - ")}</li>
-                </ul>
+            </div>
+
+            <div>
+                <label
+                className={styles.text}
+                >Type Two:</label>
+                <select
+                className={styles.input}
+                onChange={handleTypeTwo}
+                name ="types"
+                >                
+                    {types.map((typ) =>{
+                        return (
+                        <option key={typ.id} value={typ.name}>{typ.name}</option>
+                    )})}                    
+                </select>
             </div>
 
             <div>
