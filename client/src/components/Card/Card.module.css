@@ -6,7 +6,6 @@
     background: rgb(39, 37, 37);
     box-shadow: 3px 3px 10px; /*le da profundida a los elementos*/ 
     font-size: 16px;
-    position: relative;
     overflow: hidden;
     transform: translate(0px);
 };
@@ -38,10 +37,188 @@
     left: 15px;
 }
 
+.circle1{
+    background-color: rgb(00,255,127);
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    position: absolute;
+    top: 70px;
+    left: 15px;
+}
+
+.circle2{
+    background-color: rgb(224, 6, 224);
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    position: absolute;
+    top: 70px;
+    left: 15px;
+}
+
+.circle3{
+    background-color: rgb(255,140,0);
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    position: absolute;
+    top: 70px;
+    left: 15px;
+}
+
+.circle4{
+    background-color: rgb(0,206,209);
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    position: absolute;
+    top: 70px;
+    left: 15px;
+}
+
+.circle5{
+    background-color: rgb(173,255,47);
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    position: absolute;
+    top: 70px;
+    left: 15px;
+}
+
+.circle6{
+    background-color: rgb(244,164,96);
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    position: absolute;
+    top: 70px;
+    left: 15px;
+}
+
+.circle7{
+    background-color: rgb(220,20,60);
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    position: absolute;
+    top: 70px;
+    left: 15px;
+}
+
+.circle8{
+    background-color: rgb(105,105,105);
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    position: absolute;
+    top: 70px;
+    left: 15px;
+}
+
+.circle9{
+    background-color: rgb(210,105,30);
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    position: absolute;
+    top: 70px;
+    left: 15px;
+}
+
+.circle10{
+    background-color: rgb(100,149,237);
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    position: absolute;
+    top: 70px;
+    left: 15px;
+}
+
+.circle11{
+    background-color: rgb(238,130,238);
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    position: absolute;
+    top: 70px;
+    left: 15px;
+}
+
+.circle12{
+    background-color: rgb(255,255,0);
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    position: absolute;
+    top: 70px;
+    left: 15px;
+}
+
+.circle13{
+    background-color: rgb(72,61,139);
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    position: absolute;
+    top: 70px;
+    left: 15px;
+}
+
+.circle14{
+    background-color: rgb(35,12,46);
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    position: absolute;
+    top: 70px;
+    left: 15px;
+}
+
+.circle15{
+    background-color: rgb(0,128,128);
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    position: absolute;
+    top: 70px;
+    left: 15px;
+}
+
+.circle16{
+    background-color: rgb(118, 183, 185);
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    position: absolute;
+    top: 70px;
+    left: 15px;
+}
+
+.circle17{
+    background-color: rgb(32,178,170);
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    position: absolute;
+    top: 70px;
+    left: 15px;
+}
+
+.circle:hover{
+    background-color: aqua;
+}
+
 .image{
     position: absolute;
     top: 80px;
     left: 24px;
+}
+
+.image:hover {
+    transform: translateY(-5px);
 }
 
 .types {
@@ -53,9 +230,3 @@
     border-top-right-radius: 10px;
     font-size: 15px;
 }
-
-
-
-
-
-

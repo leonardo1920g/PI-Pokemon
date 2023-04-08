@@ -80,7 +80,7 @@ const getPokemonById = async (id, source) => {
                 types: pokemon.types.map((type) => type.name).flat().sort().join(", "),
               }));
 
-        const api = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=120');
+        const api = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=150');
         const response = api.data.results?.map(elemento => axios.get(elemento.url));
 
         const responseApi = await axios.all(response);
