@@ -3,9 +3,8 @@
     justify-content: space-around;    
     background-color: rgb(230, 37, 37);
     font-family: 'calibri';
-    padding-bottom: 15px; 
+    padding-bottom: 10px; 
     align-items: center;
-
 }
 
 .link{
@@ -17,24 +16,15 @@
     width: 12%; /* le da el tamaño del fondo*/
     border-bottom-left-radius: 10px; /*redondea la esquina de abajo lado izquiero */
     border-top-right-radius: 10px; /*redondea la esquina de arriba lado derecho */
+    transform: translateY(5px) ;
 }
 
 .link:hover {
     width: 12%; /* le da el tamaño del fondo*/
     background: rgb(61, 57, 57); 
     color: rgb(230, 37, 37);
-    transform: translateY(10px);
 }
 
 .image{
-    transform: translateY(0px) ; 
-}
-
-.image:hover{
-    border-bottom-left-radius: 10px; /*redondea la esquina de abajo lado izquiero */
-    border-top-right-radius: 10px;
-    border: 5px solid rgb(61, 57, 57);
-    background: rgb(230, 37, 37);
-    overflow: hidden; 
-    transform: translateY(10px);
+    transform: translateY(5px) ; 
 }

@@ -13,13 +13,11 @@ function App() {
 
   return (
     <div className="App">
-      {/* este hook "location" solo muestra la NavBar en home create y detail */}
       {location.pathname !=="/" && <NavBar />}
       <Route exact path ="/" component={Landing} />       
       <Route path ="/home" render={() => <Home/>} />
       <Route path ="/create" component={Form} />
       <Route path ="/detail/:id" component={Detail} />
-
     </div>
   );
 }

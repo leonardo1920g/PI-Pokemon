@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { pokemonDetail } from "../../Redux/actions";
+import { clearDetail, pokemonDetail } from "../../Redux/actions";
 import styles from "./Detail.module.css"
 
 const Detail = () => {    
@@ -11,7 +11,8 @@ const Detail = () => {
     const pokemon = useSelector((state) => state.detail);
   
     useEffect(() => {
-      dispatch(pokemonDetail(id));
+        dispatch(clearDetail());
+        dispatch(pokemonDetail(id));
     }, [dispatch, id]);
   
     return (
@@ -33,10 +34,10 @@ const Detail = () => {
                 </div>
                 </div>
 
-                <form className={styles.form}>                   
-                    
-                    <label className={styles.text}>Life:</label>
-                    <h2 className={styles.info}>{pokemon[0].hp}</h2>
+                <form className={styles.form}>   
+
+                    <label className={styles.text}>Types:</label>
+                    <h2 className={styles.info}>{pokemon[0].types}</h2>                
 
                     <label className={styles.text}>Attack:</label>
                     <h2 className={styles.info}>{pokemon[0].attack}</h2>
@@ -47,14 +48,6 @@ const Detail = () => {
                     <label className={styles.text}>Speed:</label>
                     <h2 className={styles.info}>{pokemon[0].speed}</h2>
 
-                    <label className={styles.text}>Height:</label>
-                    <h2 className={styles.info}>{pokemon[0].height}</h2>
-
-                    <label className={styles.text}>Weight:</label>
-                    <h2 className={styles.info}>{pokemon[0].weight}</h2>
-
-                    <label className={styles.text}>Types:</label>
-                    <h2 className={styles.info}>{pokemon[0].types}</h2>
                 </form>
 
             </div>

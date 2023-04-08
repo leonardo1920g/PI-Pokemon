@@ -15,24 +15,25 @@ const SearchBar = () => {
     }
 
     const handlerSubmit = (event) => {
-        event.preventDefault()
-        dispatch(getPokemonByName(name))
+        event.preventDefault()               
+        dispatch(getPokemonByName(name))        
     }
 
     return (
+
         <div className={styles.searchBar}>
             <button
             className={styles.button}
             type="submit"
             onClick={handlerSubmit}
-            >SEARCH</button>
-
+            >SEARCH</button>            
+            
             <input
             className={styles.input}
             type="text"
             placeholder="ENTER FULL NAME..."
             onChange={handlerInputChange}
-            />
+            />            
         </div>
     );
 }

@@ -1,89 +1,77 @@
-.container {
-    background-color: greenyellow; 
-    display: flex;  
-}
-
-.card{
-    position: relative;
+.container { 
+    position: absolute;
+    background-image: url("../../Image/form.jpg");
     width: 100%;
-    min-height: 100vh;
-    padding: 160px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    height: 85vh;
+    background-attachment:fixed;   
+    background-size: 100%;
+    display: grid;   
+    margin-top: 0;  
+    padding-bottom: 30px; 
 }
 
 .chart{
     position: absolute;
     background-color: rgb(39, 37, 37);
-    width: 1000px;
-    height: 900px;
-    top: 20px;
-    left: 100px;
+    width: 500px;
+    height: 500px;
+    top: 40px;
+    left: 190px;
     border-bottom-left-radius: 50px;
     border-top-right-radius: 50px;
+    box-shadow: 3px 3px 10px;
 }
 
 .circle{
     position: absolute;
     background-color: rgb(250, 214, 8);
-    width: 800px;
-    height: 800px;
+    width: 400px;
+    height: 400px;
     border-radius: 50%;
     position: absolute;
-    top: 50px;
-    left: -50px;
+    top: 60px;
+    left: 50px;
 }
 
 .image {
     position: absolute;
     max-width: 900px;
-    top: 140px;
-    left: 150px;
-    width: 500px;
-    height: 500px;
+    top: 60px;
+    left: 50px;
+    width: 300px;
+    height: 300px;
 }
 
-.image:hover{
-    transform: translateY(30px) ;
-}
 
 .form{    
     position: absolute;
     background: rgba(0,0,0,.7);     
     width: 100%;      
-    max-width: 400px;
+    max-width: 300px;
     margin-top: 20px;  
     z-index: 10; 
-    top: 220px;
+    top: 140px;
     left: 800px; 
     border-bottom-left-radius: 50px;
     border-top-right-radius: 50px;
-    overflow: hidden;   
-}
-
-.form:hover{
-    transform: translateY(10px) ;
+    overflow: hidden;
+    box-shadow: 3px 3px 10px;   
 }
 
 .name {
     position: absolute;
-    color: white;
-    font-size: 80px;
+    color: greenyellow;
+    font-size: 50px;
     width: 100%;
     display: flex;
     justify-content: space-between;
     z-index: 20; 
-    top: 5px;
-    left: 10%;  
+    top: 20px;
+    left: 20%;  
     background-color: rgb(230, 37, 37);
-    padding: 10px 30px;
+    padding: 10px 15px;
     border-bottom-left-radius: 50px;
-}
-
-.name:hover{
-    transform: translateY(10px) ;
-    color: rgb(37, 175, 230);
+    
 }
 
 .text{    
@@ -92,24 +80,23 @@
     display: flex;
     justify-content: space-between;
     border-bottom-left-radius: 10px;
-    font-size: 17px;
+    font-size: 20px;
 }
 
 .info{    
-    color: white;
-}
-
-.info:hover{
-    transform: translateY(10px);
     color: rgb(250, 214, 8);
+    padding: 1px 10px;
+    font-size: 21px;
+    
 }
 
 .loading {
+    position: absolute;
     background-image: url("../../Image/loading.png");       
     width: 100vw;
-    height: 100vh;
+    height: 125vh;
     background-attachment:fixed;   
     background-size: 100%;
     display: grid;
-    place-items: center;
+    margin-top: 0;  
 }

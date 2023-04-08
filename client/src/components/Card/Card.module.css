@@ -28,10 +28,6 @@
     font-size: 16px;   
 }
 
-.name:hover{
-    transform: translateY(10px) ;
-}
-
 .circle{
     background-color: rgb(250, 214, 8);
     width: 170px;
@@ -48,24 +44,17 @@
     left: 24px;
 }
 
-.image:hover{
-    transform: translateY(10px) ;
-
-}
-
 .types {
     position: absolute;
-    color: white;
-    background-color: rgb(37, 175, 230);
+    color: black;
+    background-color: greenyellow;
     top: 240px;
     padding: 2px 15px;
     border-top-right-radius: 10px;
     font-size: 15px;
 }
 
-.types:hover {
-    transform: translateY(10px) ;
-}
+
 
 
 

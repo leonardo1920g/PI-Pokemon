@@ -8,10 +8,6 @@
     
 }
 
-.input:hover{
-    transform: translateY(10px) ;
-}
-
 ::placeholder {
     color: rgb(71, 66, 66); 
         
@@ -28,5 +24,4 @@
 .button:hover{
     background: rgb(250, 214, 8);
     color: rgb(44, 97, 212);
-    transform: translateY(10px) ;
 }

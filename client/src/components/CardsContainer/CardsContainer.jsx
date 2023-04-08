@@ -52,7 +52,7 @@ const CardsContainer = () => {
         
         <div className={style.elements}>   
 
-            {!pokemons.length > 0 && <p className={style.loading}></p>}        
+            {pokemons.length === 0 && <p className={style.loading}></p>}        
 
             <select onChange={handlerSort} className={style.filter}>
                 <option value="asc">ORDER A - Z</option>
@@ -65,12 +65,11 @@ const CardsContainer = () => {
             </select>
 
             <select onChange={handlerFilterTypes} className={style.filter}>
-                <option value="All" hidden>TYPES</option>
-                        
-                {types.length &&types.map((type) => (
-                <option key={type.id} value={type.name}>
+                <option value="All" hidden>TYPES</option>                        
+                {types.map((type) => (
+                  <option key={type.id} value={type.name}>
                   {type.name.charAt(0).toUpperCase() + type.name.substring(1)}
-                </option>
+                  </option>
             ))}
             </select>
 
@@ -80,25 +79,30 @@ const CardsContainer = () => {
             </select>    
       
             <Paginated 
-            showPerPage={showPerPage}
-            pokemons={pokemons.length}
-            paginate={paginate}
-            page={page}
+              showPerPage={showPerPage}
+              pokemons={pokemons.length}
+              paginate={paginate}
+              page={page}
             />
             
             <div className={style.CardsContainer}>
-                {shownPokemons.map(pokemon =>{
-                    return (<Card
+                {shownPokemons.map(pokemon => (
+                  <Card
                     key={pokemon.id}
                     id={pokemon.id}
                     name={pokemon.name}
                     image={pokemon.image}
                     types={pokemon.types}
-                    />
-                    )
-                })
-                }
+                  />                    
+                ))}
             </div>
+
+            <Paginated 
+              showPerPage={showPerPage}
+              pokemons={pokemons.length}
+              paginate={paginate}
+              page={page}
+            />
         
         </div>
     );

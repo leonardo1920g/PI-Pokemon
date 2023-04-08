@@ -12,8 +12,7 @@ const NavBar = () => {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const resetCardContainer = async () => {
-        
+    const resetCardContainer = async () => {        
         dispatch(getPokemons())
         history.push("/home");
     }
@@ -29,7 +28,7 @@ const NavBar = () => {
             </a>
             
             <Link className={style.link} onClick={resetCardContainer} to="/home">POKEMONS</Link>
-            <Link className={style.link} to="/create">CREATED POKEMON</Link>
+            <Link className={style.link} to="/create">CREATE POKEMON</Link>
                         
             <SearchBar/>
         </div>

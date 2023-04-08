@@ -36,11 +36,10 @@ const cleanArray1 = (arr) =>
 });
 
 const createPokemon = async (
-    name, image, hp, attack, defense, speed, height, weight, typeOne, typeTwo) => {
+    name, image, attack, defense, speed, typeOne, typeTwo) => {
 
-    const newPokemon = await Pokemon.create({name, image, hp, attack, defense, speed, height, weight});
-
-    const types = [typeOne, typeTwo || ""];
+    const newPokemon = await Pokemon.create({ name, image, attack, defense, speed });
+    const types = [typeOne, typeTwo === null || typeTwo === undefined ? "" : typeTwo];
 
     for (const type of types) {
         const eachType = await Type.findOne({
@@ -72,64 +71,23 @@ const getPokemonById = async (id, source) => {
     };    
 };
 
-const cache = new Map();
+ const getAllPokemons = async () => {
 
-const getAllPokemons = async () => {
-  const database = await Pokemon.findAll({
-    include: { model: Type, attributes: ["name"], as: "types" },
-  });
+        const database = await Pokemon.findAll({include: {model: Type, attributes: ["name"], as: "types"}});
+        
+        const databasePokemons = database.map((pokemon) => ({
+                ...pokemon.toJSON(),
+                types: pokemon.types.map((type) => type.name).flat().sort().join(", "),
+              }));
 
-  const databasePokemons = database.map((pokemon) => ({
-    ...pokemon.toJSON(),
-    types: pokemon.types.map((type) => type.name).flat().sort().join(", "),
-  }));
+        const api = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=120');
+        const response = api.data.results?.map(elemento => axios.get(elemento.url));
 
-  let apiPokemons = [];
-  let endPoint = "https://pokeapi.co/api/v2/pokemon";
-  let limit = "?limit=200";
-  const cacheKey = `${endPoint}${limit}`;
-  const cachedData = cache.get(cacheKey);
-  if (cachedData) {
-    apiPokemons = cachedData;
-  } else {
-    let apiResponse = await axios.get(cacheKey);
-    let apiData = apiResponse.data;
-
-    while (apiData.results.length) {
-      const { results, next } = apiData;
-      let response = await Promise.all(results.map(({ url }) => axios.get(url)));
-      apiPokemons = [...apiPokemons, ...cleanArrayAll(response)];
-
-      if (next) {
-        apiResponse = await axios.get(next);
-        apiData = apiResponse.data;
-      } else {
-        break;
-      }
-    }
-
-    cache.set(cacheKey, apiPokemons, 30000); // cache for 30 seconds (corrected)
-  }
-
-  return [...databasePokemons, ...apiPokemons];
+        const responseApi = await axios.all(response);
+        const apiPokemons = cleanArrayAll(responseApi);
+        
+        return [...databasePokemons, ...apiPokemons];
 };
-
-//  const getAllPokemons = async () => {
-
-//         const database = await Pokemon.findAll({include: {model: Type, attributes: ["name"], as: "types"}});
-        
-//         const databasePokemons = database.map((pokemon) => ({
-//                 ...pokemon.toJSON(),
-//                 types: pokemon.types.map((type) => type.name).flat().sort().join(", "),
-//               }));
-
-//         const api = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=100');
-//         const response = api.data.results?.map(elemento => axios.get(elemento.url));
-//         const responseApi = await axios.all(response);
-//         const apiPokemons = cleanArrayAll(responseApi);
-        
-//         return [...databasePokemons, ...apiPokemons];
-// };
 
 const searchNameDb = async (name) => {
 

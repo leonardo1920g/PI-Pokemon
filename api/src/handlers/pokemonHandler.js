@@ -29,13 +29,11 @@ const getPokemonHandler = async (req, res) => {
 };
 
 const createPokemonHandler = async (req, res) => {
-    const {name, image, hp, attack, defense, speed, height, weight, typeOne, typeTwo} = req.body;
+    const { name, image, attack, defense, speed, typeOne, typeTwo } = req.body;
     
-    try {
-
-        if(!name || !image || !hp || !attack || !defense) throw Error("Missing data");
-        const newPokemon = await createPokemon(name, image, hp, attack, defense, speed, height, weight, typeOne, typeTwo);
-        res.status(200).json({data: newPokemon, message: "POKEMON CREATED SUCCESSFULLY"});
+    try {      
+        const newPokemon = await createPokemon( name, image, attack, defense, speed, typeOne, typeTwo );
+        res.status(200).json(newPokemon);
     } catch (error) {
         res.status(400).json({ error: error.message });
     };

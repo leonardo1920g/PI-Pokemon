@@ -9,9 +9,7 @@ import store from './Redux/store';
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* conecta a mi palicacion de react con el store */}
     <Provider store={store}> 
-    {/* me permite pasarle rutas en mi aplicacion  */}
       <BrowserRouter>
         <App />
       </BrowserRouter>

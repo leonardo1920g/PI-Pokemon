@@ -6,19 +6,20 @@ import {
     FILTER_CREATED, 
     ORDER_BY_NAME,
     ORDER_BY_ATTACK,
-    GET_POKEMON_BY_NAME, 
+    GET_POKEMON_BY_NAME,
+    CLEAR_DETAIL, 
 } from "./actions";
 
-const initialState = {      //este es el estado global!!
+const initialState = {
     pokemons: [],
     allPokemons: [], 
     detail: [],
     types: [],
 };
 
-const rootReducer = (state = initialState, action) => { // recibe el estado inicial y una action
-
-    switch(action.type) { //aqui se va a evaluar el typo de action que recibe 
+const rootReducer = (state = initialState, action) => { 
+    
+    switch(action.type) {
 
         case GET_POKEMONS:
             return {...state, pokemons: action.payload, allPokemons: action.payload }
@@ -48,19 +49,6 @@ const rootReducer = (state = initialState, action) => { // recibe el estado inic
             }
           
             return { ...state, pokemons: typesFiltered }
-
-        // case FILTER_TYPES:  
-        
-        //     const allPokemons = state.allPokemons;
-        //     let typesFiltered;
-
-        //     if (action.payload === 'All') {
-        //         typesFiltered = allPokemons;
-        //     } else {
-        //         typesFiltered = allPokemons.filter(pokemon => pokemon.types.map(type => type.toLowerCase()).includes(action.payload.toLowerCase()));
-        //     }
-
-        //     return { ...state, pokemons: typesFiltered }
 
         case FILTER_CREATED:
 
@@ -102,6 +90,12 @@ const rootReducer = (state = initialState, action) => { // recibe el estado inic
             return { ...state };
         }
             return { ...state, pokemons: sortedPokemons };
+
+        case CLEAR_DETAIL:
+                return {
+                  ...state,
+                  detail: "",
+                };
 
             
         default: 
