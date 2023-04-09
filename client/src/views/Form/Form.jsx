@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import { getTypes } from "../../Redux/actions";
 import styles from "./Form.module.css";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const Form = () => {
  
@@ -86,118 +87,132 @@ const Form = () => {
     const submitHandler = (event) => {
         event.preventDefault()    
         axios.post("http://localhost:3003/pokemon",form)
-        .then(res => alert(`${form.name} is your new pokemon`))
+        Swal.fire({
+            title: `${form.name} is your new Pokemon`,
+            icon: "success",
+            confirmButtonColor: 'rgb(230, 37, 37)',
+            confirmButtonText: 'Continue',
+        })
         history.push("/home");       
     };
 
     return (
-        
-        <div className={styles.init}>
-            <header className={styles.title}>Let's create a pokemon !...</header>
+        <div className={styles.create}>
+            <div className={styles.form}>
+                <div className={styles.container}>
+                    <header>Let's create a pokemon !...</header>
 
-            <div className={styles.container}>                 
-                <form className={styles.form} onSubmit={submitHandler} >                  
-                <span className={styles.text1}>Enter the characteristics of your pokemon !</span>     
-            <div>
-            <div>
-                <label className={styles.text} >Name:</label>
-                <input 
-                    type="text" 
-                    value={form.name} 
-                    onChange={changeHandler} 
-                    name="name" 
-                    className={styles.input} 
-                    placeholder="Write the name..." 
-                />
-                {errors.name && <span className={styles.error}>{errors.name}</span>}
-            </div>
+                    <div className={styles.container}>                 
+                        <form onSubmit={submitHandler} >
+                        <div className={styles.formFirst}>
+                            <div className={styles.detailsPersonal}>                                      
+                            <span className={styles.title}>Enter the characteristics of your pokemon !</span>     
+                                <div className={styles.fields}>
+                                <div>
+                                    <label className={styles.text} >Name:</label>
+                                    <input 
+                                        type="text" 
+                                        value={form.name} 
+                                        onChange={changeHandler} 
+                                        name="name" 
+                                        className={styles.input} 
+                                        placeholder="Write the name of your pokemon" 
+                                    />
+                                    {errors.name && <span className={styles.error}>{errors.name}</span>}
+                                </div>
 
-            <div>
-                <label className={styles.text}>Image:</label>
-                <input 
-                    type="text" 
-                    value={form.image} 
-                    onChange={changeHandler} 
-                    name="image" 
-                    className= {styles.input} 
-                    placeholder="Paste the image link..." 
-                />                
-                {errors.image && <span className={styles.error}>{errors.image}</span>}
-            </div>
+                                <div>
+                                    <label className={styles.text}>Image:</label>
+                                    <input 
+                                        type="text" 
+                                        value={form.image} 
+                                        onChange={changeHandler} 
+                                        name="image" 
+                                        className= {styles.input} 
+                                        placeholder="Paste the image link..." 
+                                    />                
+                                    {errors.image && <span className={styles.error}>{errors.image}</span>}
+                                </div>
 
-            <div>
-                <label className={styles.text} >Attack:</label>
-                <input 
-                    type="text" 
-                    value={form.attack} 
-                    onChange={changeHandler} 
-                    name="attack" 
-                    className={styles.input}
-                />
-                {errors.attack && <span className={styles.error}>{errors.attack}</span>}
-            </div>
+                                <div>
+                                    <label className={styles.text} >Attack:</label>
+                                    <input 
+                                        type="text" 
+                                        value={form.attack} 
+                                        onChange={changeHandler} 
+                                        name="attack" 
+                                        className={styles.input}
+                                        placeholder="Attack level"
+                                    />
+                                    {errors.attack && <span className={styles.error}>{errors.attack}</span>}
+                                </div>
 
-            <div>
-                <label className={styles.text} >Defense:</label>
-                <input 
-                    type="text" 
-                    value={form.defense} 
-                    onChange={changeHandler} 
-                    name="defense" 
-                    className={styles.input}
-                />
-                {errors.defense && <span className={styles.error}>{errors.defense}</span>}
-            </div>
+                                <div>
+                                    <label className={styles.text} >Defense:</label>
+                                    <input 
+                                        type="text" 
+                                        value={form.defense} 
+                                        onChange={changeHandler} 
+                                        name="defense" 
+                                        className={styles.input}
+                                        placeholder="Defense level"
+                                    />
+                                    {errors.defense && <span className={styles.error}>{errors.defense}</span>}
+                                </div>
 
-            <div>
-                <label className={styles.text} >Speed:</label>
-                <input 
-                    type="text" 
-                    value={form.speed} 
-                    onChange={changeHandler} 
-                    name="speed" 
-                    className={styles.input} 
-                />
-                {errors.speed && <span className={styles.error}>{errors.speed}</span>}
-            </div>
+                                <div>
+                                    <label className={styles.text} >Speed:</label>
+                                    <input 
+                                        type="text" 
+                                        value={form.speed} 
+                                        onChange={changeHandler} 
+                                        name="speed" 
+                                        className={styles.input} 
+                                        placeholder="Speed level"
+                                    />
+                                    {errors.speed && <span className={styles.error}>{errors.speed}</span>}
+                                </div>
 
-            <div>
-                <label className={styles.text} >Type One:</label>
-                <select 
-                    className={styles.input} 
-                    onChange={handleTypeOne} 
-                    name ="types" >  
+                                <div>
+                                    <label className={styles.text} >Type One:</label>
+                                    <select 
+                                        className={styles.input} 
+                                        onChange={handleTypeOne} 
+                                        name ="types" >  
 
-                    {types.map((typ) =>{
-                        return (
-                        <option key={typ.id} value={typ.name}>{typ.name}</option>
-                    )})}                    
-                </select>
-            </div>
+                                        {types.map((typ) =>{
+                                            return (
+                                            <option key={typ.id} value={typ.name}>{typ.name}</option>
+                                        )})}                    
+                                    </select>
+                                </div>
 
-            <div>
-                <label className={styles.text} >Type Two:</label>
-                <select 
-                    className={styles.input} 
-                    onChange={handleTypeTwo} 
-                    name ="types" > 
-                                   
-                    {types.map((typ) =>{
-                        return (
-                        <option key={typ.id} value={typ.name}>{typ.name}</option>
-                    )})}                    
-                </select>
-            </div>
+                                <div>
+                                    <label className={styles.text} >Type Two:</label>
+                                    <select 
+                                        className={styles.input} 
+                                        onChange={handleTypeTwo} 
+                                        name ="types" > 
+                                                    
+                                        {types.map((typ) =>{
+                                            return (
+                                            <option key={typ.id} value={typ.name}>{typ.name}</option>
+                                        )})}                    
+                                    </select>
+                                </div>
 
-            <div>
-                <button className={styles.button} type="submit" >CREATE POKEMON</button>
-            </div>
+                                <div className={styles.containerButton}>
+                                    <button className={styles.button} type="submit" >CREATE POKEMON</button>
+                                </div>
 
+                                </div>
+                            </div>
+                        </div>                                     
+                    </form>                
+                    </div>
+                </div>  
             </div>
-                                     
-                </form>
-            </div>
-        </div>        
+        </div>      
     )
 };
 

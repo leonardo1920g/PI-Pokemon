@@ -7,7 +7,8 @@ import {
     ORDER_BY_NAME,
     ORDER_BY_ATTACK,
     GET_POKEMON_BY_NAME,
-    CLEAR_DETAIL, 
+    CLEAR_DETAIL,
+    NAME_ERROR, 
 } from "./actions";
 
 const initialState = {
@@ -15,6 +16,7 @@ const initialState = {
     allPokemons: [], 
     detail: [],
     types: [],
+    nameError: null,
 };
 
 const rootReducer = (state = initialState, action) => { 
@@ -29,6 +31,9 @@ const rootReducer = (state = initialState, action) => {
 
         case GET_POKEMON_BY_NAME:
             return {...state, pokemons: action.payload} 
+
+        case NAME_ERROR:
+            return {...state, nameError: action.payload}
         
         case GET_TYPES:
             return {...state, types: action.payload}

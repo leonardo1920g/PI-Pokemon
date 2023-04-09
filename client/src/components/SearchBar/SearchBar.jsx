@@ -1,13 +1,13 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux"
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux"
 import { getPokemonByName } from "../../Redux/actions";
-import styles from "./SearchBar.module.css"
+import styles from "./SearchBar.module.css";
+import Swal from "sweetalert2";
 
 const SearchBar = () => {
 
     const dispatch = useDispatch();
-
-    // se crea el estado local 
+    const errorName = useSelector((state) => state.nameError);
     const [name, setName] = useState("");
 
     const handlerInputChange = (event) => {
@@ -15,9 +15,21 @@ const SearchBar = () => {
     }
 
     const handlerSubmit = (event) => {
-        event.preventDefault()               
-        dispatch(getPokemonByName(name))        
+        event.preventDefault()              
+        dispatch(getPokemonByName(name));                     
     }
+
+    useEffect (() => {
+        if (errorName){
+            Swal.fire({
+                title: `${name} does not exist`,
+                text: "¡ Check the name is correct !",
+                icon: "error",
+                confirmButtonColor: 'rgb(230, 37, 37)',
+                confirmButtonText: 'Try again',
+            })
+        }
+    }, [errorName, name]);
 
     return (
 

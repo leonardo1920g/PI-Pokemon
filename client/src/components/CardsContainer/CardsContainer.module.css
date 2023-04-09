@@ -1,6 +1,6 @@
 .elements {
     width: 100%; /*define que cantidad de la vista se va usar*/
-    background: transparent;     
+    background: transparent;    
 }
 
 .CardsContainer {    
@@ -10,11 +10,12 @@
     flex-direction: row;
     flex-wrap: wrap;
     gap: 20px;
-    margin-top: 20px;  
-    background-color: transparent;         
+    margin-top: 30px;  
+    background: transparent;         
 }
 
 .filter {
+    font-weight: 700;
     justify-content: space-around;
     background: rgb(250, 214, 8);
     flex-direction: row;
@@ -23,10 +24,10 @@
     border-top-right-radius: 10px;
     color:black;
     border: none;  
-    box-shadow: 3px 3px 10px; 
+    box-shadow: 3px 3px 10px black; 
     margin-left: 10px; 
     margin-right: 10px;
-    margin-top: 10px;
+    margin-top: 50px;
 }
 
 .filter:hover {
@@ -38,11 +39,12 @@
 .loading {
     position: absolute;
     background-image: url("../../Image/loading.png");       
-    width: 100vw;
-    height: 125vh;
+    width: 100%;
+    height: 87.4vh;
     background-attachment:fixed;   
     background-size: 100%;
-    display: grid;
+    display: grid;   
     margin-top: 0;  
+    padding-bottom: 30px;  
 }
 

@@ -1,5 +1,5 @@
 .paginate{
-  margin-top: 20px;
+  margin-top: 30px;
   display: flex;
   justify-content: center;
   gap: 20px; /*espacio entre botones*/ 
@@ -13,7 +13,8 @@
   border-bottom-left-radius: 10px;
   border-top-right-radius: 10px;
   padding: 8px 10px;
-  box-shadow: 3px 3px 10px ;
+  box-shadow: 3px 3px 10px black;
+  font-weight: 700;
 }
 
 .prev:hover {

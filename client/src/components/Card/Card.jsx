@@ -14,6 +14,8 @@ const Card = (props) => {
         circleClass = styles.circle2;
     } else if (props.types === 'ground, poison') {
         circleClass = styles.circle2;
+    } else if (props.types === 'flying, poison') {
+        circleClass = styles.circle2;   
     } else if (props.types === 'fire') {
         circleClass = styles.circle3;
     } else if (props.types === 'fire, flying') {
@@ -37,7 +39,7 @@ const Card = (props) => {
     } else if (props.types === 'bug, flying') {
         circleClass = styles.circle5;
     } else if (props.types === 'bug, poison') {
-        circleClass = styles.circle2;      
+        circleClass = styles.circle5;      
     } else if (props.types === 'normal') {
         circleClass = styles.circle6;
     } else if (props.types === 'fighting') {

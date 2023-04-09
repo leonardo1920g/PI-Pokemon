@@ -9,7 +9,8 @@ export const ORDER_BY_NAME = "ORDER_BY_NAME";
 export const ORDER_BY_ATTACK = "ORDER_BY_ATTACK";
 export const GET_POKEMON_BY_NAME = "GET_POKEMON_BY_NAME";
 export const CLEAR_DETAIL = "CLEAR_DETAIL";
-
+export const NAME_ERROR = "NAME_ERROR";
+ 
 export const getPokemons = () => {
     return async function (dispatch) {
         try{
@@ -42,7 +43,7 @@ export const getPokemonByName = (name) => {
             const response = await axios.get(`http://localhost:3003/pokemon?name=${name}`)
             return dispatch({ type: GET_POKEMON_BY_NAME, payload: response.data })
         } catch (error) {
-            return alert("The pokemon does not exist")
+            dispatch({ type: NAME_ERROR, payload: error });
         }
     }
 };

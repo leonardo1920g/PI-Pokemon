@@ -1,30 +1,37 @@
 /*imagen de fondo*/
 .landing {  
-    background-image: url("../../Image/Landing.png"); /*lugar donde su ubica la imagen*/        
-    width: 100vw;
+    position: absolute;
+    background-image: url("../../Image/Landing.jpg"); /*lugar donde su ubica la imagen*/        
+    width: 100%;
     height: 100vh;
     background-attachment:fixed;   
     background-size: 100%;
-    display: grid;
-    place-items: center;
+    display: grid;   
+    margin-top: 0;  
+    padding-bottom: 0px;
 }
 
 /*diseño del boton */
 .button {   
-    font: 80% sans-serif;/*tipo de fuente*/
-    font-weight: 800; /*grosor de la letra*/
-    background-color: rgb(243, 63, 63);/*color del fondo*/
-    border-radius: 10px; /*crea los bordes curbos*/
-    padding: 8px 30px;  /*le da la extencion al boton */
-    border: 5px solid white; /*color del border*/
+    font-size: 2em;/*tipo de fuente*/
+    font-family: 'poppins',sans-serif;
+    background-color: rgb(87, 86, 86);/*color del fondo*/
+    border-bottom-left-radius: 30px; /*redondea la esquina de abajo lado izquiero */
+    border-top-right-radius: 30px;
+    padding: 20px 50px;  /*le da la extencion al boton */
     color: white; /*color de la letra*/
-    margin-top: 80px; /*pociciona el boton*/
+    margin-top: 100px; /*pociciona el boton*/
+    border: none;
+    outline: none;    
+    transition: all 0.2s linear;
+    cursor: pointer;
+    box-shadow: 3px 3px 10px black;
+    
 }
 
 /*interaccion del boton*/
 .button:hover {
     background-color: rgb(44, 97, 212);
-    border: 5px solid rgb(245, 214, 77);
-    color: rgb(245, 214, 77);
-    transform: translateY(10px);
+    transform: translateY(5px);
+    box-shadow: 1px 1px 20px 8px rgb(44, 97, 212);
 }

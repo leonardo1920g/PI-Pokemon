@@ -14,7 +14,7 @@ const CardsContainer = () => {
     const history = useHistory();
 
     const [page, setPage] = useState(1);
-    const showPerPage = 12;
+    const showPerPage = 6;
     const lastOnPage = page * showPerPage;
     const firstOnPage = lastOnPage - showPerPage;
     const shownPokemons = pokemons.slice(firstOnPage, lastOnPage);

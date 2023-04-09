@@ -1,10 +1,10 @@
-.input {
-     
+.input {     
     border: none;      
     height: 60%; 
     margin-top: 6px;
     border-top-right-radius: 10px;
     padding: 7px 30px;
+    box-shadow: 3px 3px 10px black;
     
 }
 
@@ -18,7 +18,8 @@
     color: white;
     border: none;
     padding: 7px 30px;
-    border-bottom-left-radius: 10px;    
+    border-bottom-left-radius: 10px; 
+    box-shadow: 3px 3px 10px black;   
 }
 
 .button:hover{
