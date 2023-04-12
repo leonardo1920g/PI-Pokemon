@@ -1,4 +1,5 @@
 import axios from "axios";
+import Swal from "sweetalert2";
 
 export const GET_POKEMONS = "GET_POKEMONS";
 export const POKEMON_DETAIL = "POKEMON_DETAIL";
@@ -9,7 +10,7 @@ export const ORDER_BY_NAME = "ORDER_BY_NAME";
 export const ORDER_BY_ATTACK = "ORDER_BY_ATTACK";
 export const GET_POKEMON_BY_NAME = "GET_POKEMON_BY_NAME";
 export const CLEAR_DETAIL = "CLEAR_DETAIL";
-export const NAME_ERROR = "NAME_ERROR";
+export const CLEAR_NAME = "CLEAR_NAME";
  
 export const getPokemons = () => {
     return async function (dispatch) {
@@ -43,7 +44,13 @@ export const getPokemonByName = (name) => {
             const response = await axios.get(`http://localhost:3003/pokemon?name=${name}`)
             return dispatch({ type: GET_POKEMON_BY_NAME, payload: response.data })
         } catch (error) {
-            dispatch({ type: NAME_ERROR, payload: error });
+            Swal.fire({
+                title: `${name} does not exist`,
+                text: "¡ Check the name is correct !",
+                icon: "error",
+                confirmButtonColor: 'rgb(230, 37, 37)',
+                confirmButtonText: 'Try again',
+            });
         }
     }
 };
@@ -92,5 +99,11 @@ export const orderByAttack = (payload) => {
 export const clearDetail = () => {
     return {
       type: CLEAR_DETAIL,
+    };
+}
+
+export const clearName = () => {
+    return {
+      type: CLEAR_NAME,
     };
 }

@@ -1,7 +1,7 @@
-import Card from "../Card/Card";
-import style from "./CardsContainer.module.css"
-import { useDispatch, useSelector } from "react-redux"
 import { useState } from "react";
+import Card from "../Card/Card";
+import style from "./CardsContainer.module.css";
+import { useDispatch, useSelector } from "react-redux";
 import Paginated from "../Paginated/Paginated";
 import { filterCreated, filterTypes, orderByAttack, orderByName} from "../../Redux/actions";
 import { useHistory } from "react-router-dom";

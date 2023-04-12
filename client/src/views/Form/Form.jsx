@@ -93,7 +93,7 @@ const Form = () => {
             confirmButtonColor: 'rgb(230, 37, 37)',
             confirmButtonText: 'Continue',
         })
-        history.push("/home");       
+        history.push("/home");      
     };
 
     return (

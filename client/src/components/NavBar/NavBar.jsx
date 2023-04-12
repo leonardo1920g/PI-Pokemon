@@ -12,20 +12,16 @@ const NavBar = () => {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const resetCardContainer = async () => {        
-        dispatch(getPokemons())
+    const resetCardContainer = async () => {      
+        await dispatch(getPokemons())
         history.push("/home");
     }
 
     return (
         <div className={style.NavBar}>
-            <a href="/" className={style.image}>
-            <img 
-            src={logo}
-            alt="init"
-            width="100px"                        
-            />
-            </a>
+            <Link to="/" className={style.image}>
+            <img src={logo} alt="init" width="100px" />
+            </Link>
             
             <Link className={style.link} onClick={resetCardContainer} to="/home">POKEMONS</Link>
             <Link className={style.link} to="/create">CREATE POKEMON</Link>
