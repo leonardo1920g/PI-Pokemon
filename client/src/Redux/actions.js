@@ -10,12 +10,11 @@ export const ORDER_BY_NAME = "ORDER_BY_NAME";
 export const ORDER_BY_ATTACK = "ORDER_BY_ATTACK";
 export const GET_POKEMON_BY_NAME = "GET_POKEMON_BY_NAME";
 export const CLEAR_DETAIL = "CLEAR_DETAIL";
-export const CLEAR_NAME = "CLEAR_NAME";
  
 export const getPokemons = () => {
     return async function (dispatch) {
         try{
-            const apiPokemons = await axios.get("http://localhost:3003/pokemon")
+            const apiPokemons = await axios.get("/pokemon")
             const pokemons = apiPokemons.data;
 
             dispatch({ type: GET_POKEMONS, payload: pokemons })
@@ -29,7 +28,7 @@ export const getPokemons = () => {
 export const pokemonDetail = (id) => {
     return async function (dispatch) {
         try {
-            const response = await axios.get(`http://localhost:3003/pokemon/${id}`)
+            const response = await axios.get(`/pokemon/${id}`)
             return dispatch({ type: POKEMON_DETAIL, payload: response.data })
 
         } catch (error) {
@@ -41,7 +40,7 @@ export const pokemonDetail = (id) => {
 export const getPokemonByName = (name) => {
     return async function (dispatch) {
         try {
-            const response = await axios.get(`http://localhost:3003/pokemon?name=${name}`)
+            const response = await axios.get(`/pokemon?name=${name}`)
             return dispatch({ type: GET_POKEMON_BY_NAME, payload: response.data })
         } catch (error) {
             Swal.fire({
@@ -58,7 +57,7 @@ export const getPokemonByName = (name) => {
 export const getTypes = () => {
     return async function(dispatch) {
         try {
-            const apiTypes = await axios.get('http://localhost:3003/type');
+            const apiTypes = await axios.get('/type');
             const types = apiTypes.data;
   
             dispatch({ type: GET_TYPES, payload: types });
@@ -99,11 +98,5 @@ export const orderByAttack = (payload) => {
 export const clearDetail = () => {
     return {
       type: CLEAR_DETAIL,
-    };
-}
-
-export const clearName = () => {
-    return {
-      type: CLEAR_NAME,
     };
 }

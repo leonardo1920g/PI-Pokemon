@@ -8,7 +8,6 @@ import {
     ORDER_BY_ATTACK,
     GET_POKEMON_BY_NAME,
     CLEAR_DETAIL,
-    CLEAR_NAME,
 } from "./actions";
 
 const initialState = {
@@ -94,9 +93,6 @@ const rootReducer = (state = initialState, action) => {
 
         case CLEAR_DETAIL:
             return { ...state, detail: "" };
-
-        case CLEAR_NAME:
-            return { ...state, pokemons: "",};
 
         default: 
             return { ...state };
