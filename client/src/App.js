@@ -7,7 +7,7 @@ import Form from './views/Form/Form';
 import Detail from './views/Detail/Detail';
 import NavBar from './components/NavBar/NavBar';
 import axios from 'axios';
-axios.defaults.baseURL = 'http://localhost:3003/';
+axios.defaults.baseURL = 'https://pi-pokemon-leo.onrender.com/';
 
 function App() {
 
