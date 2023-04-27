@@ -10,6 +10,7 @@ export const ORDER_BY_NAME = "ORDER_BY_NAME";
 export const ORDER_BY_ATTACK = "ORDER_BY_ATTACK";
 export const GET_POKEMON_BY_NAME = "GET_POKEMON_BY_NAME";
 export const CLEAR_DETAIL = "CLEAR_DETAIL";
+export const CLEAR_POKEMONS = "CLEAR_POKEMONS";
  
 export const getPokemons = () => {
     return async function (dispatch) {
@@ -98,5 +99,11 @@ export const orderByAttack = (payload) => {
 export const clearDetail = () => {
     return {
       type: CLEAR_DETAIL,
+    };
+}
+
+export const clearPokemons = () =>{
+    return {
+        type: CLEAR_POKEMONS,
     };
 }

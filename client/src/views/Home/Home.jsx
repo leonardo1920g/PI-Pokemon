@@ -8,7 +8,8 @@ const Home = () => {
     
     const dispatch = useDispatch();
         
-    useEffect(() => {        
+    useEffect(() => {   
+        dispatch(clearPokemons());     
         dispatch(getPokemons());
         dispatch(getTypes());        
     },[dispatch]); 
