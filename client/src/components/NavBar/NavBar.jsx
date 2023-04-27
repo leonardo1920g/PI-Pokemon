@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
 import style from "./NavBar.module.css";
 import logo from "../../Image/logo.png";
-import { clearPokemons, getPokemons } from "../../Redux/actions";
+import { getPokemons } from "../../Redux/actions";
 import { useDispatch } from "react-redux";
 
 
@@ -13,7 +13,6 @@ const NavBar = () => {
     const history = useHistory();
 
     const resetCardContainer = async () => {    
-        await dispatch(clearPokemons())  
         await dispatch(getPokemons())
         history.push("/home");
     }
