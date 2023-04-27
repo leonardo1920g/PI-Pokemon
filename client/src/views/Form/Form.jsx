@@ -21,7 +21,7 @@ const Form = () => {
         typeOne: "", 
         typeTwo: ""
     });
-    
+      
     useEffect(() => {
         dispatch(getTypes())
     },[dispatch])
@@ -86,7 +86,7 @@ const Form = () => {
 
     const submitHandler = (event) => {
         event.preventDefault()    
-        axios.post("http://localhost:3003/pokemon",form)
+        axios.post('https://pi-pokemon-leo.onrender.com/pokemon',form)
         Swal.fire({
             title: `${form.name} is your new Pokemon`,
             icon: "success",
